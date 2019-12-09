@@ -1,18 +1,17 @@
 <header class="modal-header">
-    <h1>Are you sure you want to leave this page?</h1>
+    <h1>确认想要离开此页面吗？</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="关闭" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
 <div class="modal-body">
     <p>
-        Hey there! It looks like you're in the middle of writing something and
-        you haven't saved all of your content.
+        嗨！看上去你还有未保存的内容哦！
     </p>
 
-    <p>Save before you go!</p>
+    <p>离开前先保存一下吧！</p>
 </div>
 
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn"><span>Stay</span></button>
-    <button {{action "confirm"}} class="gh-btn gh-btn-red"><span>Leave</span></button>
+    <button {{action "closeModal"}} class="gh-btn"><span>留在此页面</span></button>
+    <button {{action "confirm"}} class="gh-btn gh-btn-red"><span>离开</span></button>
 </div>

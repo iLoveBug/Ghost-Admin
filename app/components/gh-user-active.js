@@ -10,6 +10,6 @@ export default Component.extend({
     lastLoginUTC: computed('user.lastLoginUTC', function () {
         let lastLoginUTC = this.get('user.lastLoginUTC');
 
-        return lastLoginUTC ? moment(lastLoginUTC).fromNow() : '(Never)';
+        return lastLoginUTC ? moment(lastLoginUTC).fromNow() : '(从未上线)';
     })
 });

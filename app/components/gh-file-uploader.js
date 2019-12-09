@@ -26,7 +26,7 @@ export default Component.extend({
     classNames: ['gh-image-uploader'],
     classNameBindings: ['dragClass'],
 
-    labelText: 'Select or drag-and-drop a file',
+    labelText: '选择或者拖拽一个文件',
     url: null,
     paramName: 'file',
     accept: null,

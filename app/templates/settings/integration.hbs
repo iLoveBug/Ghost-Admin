@@ -2,7 +2,7 @@
     <form class="mb15" {{action (perform "save") on="submit"}}>
         <GhCanvasHeader class="gh-canvas-header">
             <h2 class="gh-canvas-title" data-test-screen-title>
-                {{#link-to "settings.integrations" data-test-link="integrations-back"}}Integrations{{/link-to}}
+                {{#link-to "settings.integrations" data-test-link="integrations-back"}}集成{{/link-to}}
                 <span>{{svg-jar "arrow-right"}}</span>
                 {{integration.name}}
             </h2>
@@ -11,7 +11,7 @@
             </section>
         </GhCanvasHeader>
 
-        <h4 class="midlightgrey f-small fw5 ttu">Configuration</h4>
+        <h4 class="midlightgrey f-small fw5 ttu">配置</h4>
         <div class="pa5 pt3 pb3 br4 shadow-1 bg-grouped-table mt2">
             <div class="flex">
                 <div class="flex flex-column items-start">
@@ -38,7 +38,7 @@
                                     class="child absolute top-0 left-0 w-100 h-100 br4 b white text-center bg-black-70 f8"
                                     {{action "triggerIconFileDialog"}}
                                 >
-                                    Upload
+                                    上传
                                 </button>
                             {{/if}}
                             <div style="display:none">
@@ -59,7 +59,7 @@
                         hasValidated=integration.hasValidated
                         property="name"
                     }}
-                        <label for="integration_name">Name</label>
+                        <label for="integration_name">名称</label>
                         {{gh-text-input
                             id="integration_name"
                             class="gh-input mt1 mb1"
@@ -78,7 +78,7 @@
                         hasValidated=integration.hasValidated
                         property="decription"
                     }}
-                        <label for="integration_description" class="mt3">Description</label>
+                        <label for="integration_description" class="mt3">描述</label>
                         {{gh-text-input
                             id="integration_description"
                             class="gh-input mt1"
@@ -106,9 +106,9 @@
                                         <button type="button" {{action (perform copyContentKey)}}
                                             class="white fw4 flex items-center">
                                             {{#if copyContentKey.isRunning}}
-                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
+                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} 已复制
                                             {{else}}
-                                            Copy
+                                            复制
                                             {{/if}}
                                         </button>
                                     </div>
@@ -127,9 +127,9 @@
                                     <div class="pt1 pr3 pb1 pl3 bg-black-70 child br3 f8 nudge-top--4 nudge-right--1">
                                         <button type="button" {{action (perform copyAdminKey)}} class="white fw4 flex items-center">
                                             {{#if copyAdminKey.isRunning}}
-                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
+                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} 已复制
                                             {{else}}
-                                            Copy
+                                            复制
                                             {{/if}}
                                         </button>
                                     </div>
@@ -148,9 +148,9 @@
                                     <div class="pt1 pr3 pb1 pl3 bg-black-70 child br3 f8 nudge-top--4 nudge-right--1">
                                         <button type="button" {{action (perform copyApiUrl)}} class="white fw4 flex items-center">
                                             {{#if copyApiUrl.isRunning}}
-                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
+                                            {{svg-jar "check-circle" class="w3 v-mid mr2"}} 已复制
                                             {{else}}
-                                            Copy
+                                            复制
                                             {{/if}}
                                         </button>
                                     </div>
@@ -168,10 +168,10 @@
         <table class="ma0 w-100 bg-grouped-table shadow-1 br3">
             <thead>
                 <tr>
-                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 br--top br--left fw5">Name</th>
-                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 fw5">Event</th>
+                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 br--top br--left fw5">名称</th>
+                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 fw5">事件</th>
                     <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 fw5">URL</th>
-                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 fw5">Last triggered</th>
+                    <th class="pa2 pl3 midlightgrey ttu fw4 f-small br3 fw5">上次触发</th>
                     <th class="pa2 pl3 ttu br3 br--top br--right"></th>
                 </tr>
             </thead>
@@ -198,13 +198,13 @@
                     <td colspan="5" class="pa5 pt15 pb15 tc midgrey f7">
                         <div class="flex flex-column items-center">
                             <p class="ma0 pa0 tc midgrey lh-title mt2">
-                                No webhooks configured
+                                尚未配置webhooks
                             </p>
                             {{#link-to "settings.integration.webhooks.new" integration classNames="flex items-center"
                             data-test-link="add-webhook"}}
                             <div class="flex items-center pa2 pt1">
                                 {{svg-jar "add" class="w3 h3 fill-blue-d1"}}
-                                <span class="ml1 blue">Add webhook</span>
+                                <span class="ml1 blue">添加webhook</span>
                             </div>
                             {{/link-to}}
                         </div>
@@ -220,7 +220,7 @@
                         data-test-link="add-webhook"}}
                         <div class="pa3 f7">
                             {{svg-jar "add" class="w3 h3 fill-blue-d1"}}
-                            <span class="ml1 blue">Add webhook</span>
+                            <span class="ml1 blue">添加webhook</span>
                         </div>
                         {{/link-to}}
                     </td>
@@ -230,7 +230,7 @@
         </table>
     </div>
     <button class="gh-btn gh-btn-red gh-btn-icon mb15 mt15" {{action "confirmIntegrationDeletion"}}>
-        <span> Delete Integration </span>
+        <span> 删除集成 </span>
     </button>
 </section>
 

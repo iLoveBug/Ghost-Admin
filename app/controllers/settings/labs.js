@@ -46,7 +46,7 @@ export default Controller.extend({
     importSuccessful: false,
     showDeleteAllModal: false,
     submitting: false,
-    uploadButtonText: 'Import',
+    uploadButtonText: '导入',
 
     importMimeType: null,
     jsonExtension: null,
@@ -69,7 +69,7 @@ export default Controller.extend({
             let currentUserId = this.get('session.user.id');
             let dbUrl = this.get('ghostPaths.url').api('db');
 
-            this.set('uploadButtonText', 'Importing');
+            this.set('uploadButtonText', '导入中');
             this.set('importErrors', null);
             this.set('importSuccessful', false);
 
@@ -123,7 +123,7 @@ export default Controller.extend({
 
                 throw response;
             }).finally(() => {
-                this.set('uploadButtonText', 'Import');
+                this.set('uploadButtonText', '导入');
             });
         },
 

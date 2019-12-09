@@ -3,14 +3,14 @@
     <div class="gh-flow-content-wrap">
         <section class="gh-flow-content">
             <header>
-                <h1>Create your account</h1>
+                <h1>创建账号</h1>
             </header>
 
             <form id="signup" class="gh-flow-create" method="post" novalidate="novalidate" onsubmit={{action "submit"}}>
                 {{gh-profile-image email=signupDetails.email setImage=(action "setImage")}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="name"}}
-                    <label for="name">Full name</label>
+                    <label for="name">姓名</label>
                     <span class="gh-input-icon gh-icon-user">
                         {{svg-jar "user-circle"}}
                         {{gh-trim-focus-input
@@ -18,7 +18,7 @@
                             type="text"
                             id="display-name"
                             name="display-name"
-                            placeholder="Eg. John H. Watson"
+                            placeholder="例如：张三"
                             autocorrect="off"
                             autocomplete="name"
                             value=(readonly signupDetails.name)
@@ -31,7 +31,7 @@
                 {{/gh-form-group}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="email"}}
-                    <label for="email">Email address</label>
+                    <label for="email">电子邮件地址</label>
                     <span class="gh-input-icon gh-icon-mail">
                         {{svg-jar "email"}}
                         {{gh-text-input
@@ -39,7 +39,7 @@
                             type="text"
                             id="username"
                             name="username"
-                            placeholder="Eg. john@example.com"
+                            placeholder="例如：jobs_steve@apple.com"
                             autocorrect="off"
                             autocomplete="username email"
                             value=(readonly signupDetails.email)
@@ -52,7 +52,7 @@
                 {{/gh-form-group}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="password"}}
-                    <label for="password">Password</label>
+                    <label for="password">密码</label>
                     <span class="gh-input-icon gh-icon-lock">
                         {{svg-jar "lock"}}
                         {{gh-text-input
@@ -60,7 +60,7 @@
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="At least 10 characters"
+                            placeholder="最少10个字符"
                             autocorrect="off"
                             autocomplete="new-password"
                             value=(readonly signupDetails.password)
@@ -73,7 +73,7 @@
                 {{/gh-form-group}}
             </form>
 
-            {{gh-task-button "Create Account"
+            {{gh-task-button "创建账号"
                 type="submit"
                 form="signup"
                 defaultClick=true

@@ -31,7 +31,7 @@ describe('Unit: Controller: editor', function () {
             expect(controller.get('post.slug')).to.equal('title-slug');
         });
 
-        it('should not set the destination if the title is "(Untitled)" and the post already has a slug', async function () {
+        it('should not set the destination if the title is "未命名" and the post already has a slug', async function () {
             let controller = this.owner.lookup('controller:editor');
 
             controller.set('slugGenerator', EmberObject.create({
@@ -43,7 +43,7 @@ describe('Unit: Controller: editor', function () {
 
             expect(controller.get('post.slug')).to.equal('whatever');
 
-            controller.set('post.titleScratch', '(Untitled)');
+            controller.set('post.titleScratch', '未命名');
             await controller.get('generateSlug').perform();
 
             expect(controller.get('post.slug')).to.equal('whatever');
@@ -76,7 +76,7 @@ describe('Unit: Controller: editor', function () {
             expect(controller.get('post.slug')).to.equal('test-slug');
         });
 
-        it('should invoke generateSlug if the post is not new and it\'s title is "(Untitled)"', async function () {
+        it('should invoke generateSlug if the post is not new and it\'s title is "未命名"', async function () {
             let {controller} = this;
 
             controller.set('target', {send() {}});
@@ -84,7 +84,7 @@ describe('Unit: Controller: editor', function () {
                 this.set('post.slug', 'test-slug');
                 yield RSVP.resolve();
             }));
-            controller.set('post', EmberObject.create({isNew: false, title: '(Untitled)'}));
+            controller.set('post', EmberObject.create({isNew: false, title: '未命名'}));
 
             expect(controller.get('post.isNew')).to.be.false;
             expect(controller.get('post.titleScratch')).to.not.be.ok;
@@ -121,7 +121,7 @@ describe('Unit: Controller: editor', function () {
             expect(controller.get('post.slug')).to.not.be.ok;
         });
 
-        it('should not invoke generateSlug if the post is not new and the title is not "(Untitled)"', async function () {
+        it('should not invoke generateSlug if the post is not new and the title is not "未命名"', async function () {
             let {controller} = this;
 
             controller.set('target', {send() {}});

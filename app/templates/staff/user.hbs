@@ -1,12 +1,12 @@
 <section class="gh-canvas">
     <GhCanvasHeader class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            {{link-to "Staff" "staff" data-test-staff-link=true}}
+            {{link-to "内部成员" "staff" data-test-staff-link=true}}
             <span>{{svg-jar "arrow-right"}}</span>
             {{user.name}}
 
             {{#if user.isSuspended}}
-            <span class="gh-badge suspended" data-test-suspended-badge>Suspended</span>
+            <span class="gh-badge suspended" data-test-suspended-badge>暂停</span>
             {{/if}}
         </h2>
 
@@ -23,14 +23,14 @@
                     {{#gh-dropdown-button dropdownName="user-actions-menu" classNames="gh-btn gh-btn-white gh-btn-icon only-has-icon user-actions-cog" title="User Actions" data-test-user-actions=true}}
                         <span>
                             {{svg-jar "settings"}}
-                            <span class="hidden">User Settings</span>
+                            <span class="hidden">用户设置</span>
                         </span>
                     {{/gh-dropdown-button}}
                     {{#gh-dropdown name="user-actions-menu" tagName="ul" classNames="user-actions-menu dropdown-menu dropdown-triangle-top-right"}}
                         {{#if canMakeOwner}}
                             <li>
                                 <button {{action "toggleTransferOwnerModal"}}>
-                                    Make Owner
+                                    设置所有者
                                 </button>
                                 {{#if showTransferOwnerModal}}
                                     {{gh-fullscreen-modal "transfer-owner"
@@ -43,20 +43,20 @@
                         {{#if deleteUserActionIsVisible}}
                             <li>
                                 <button {{action "toggleDeleteUserModal"}} class="delete" data-test-delete-button>
-                                    Delete User
+                                    删除用户
                                 </button>
                             </li>
                             {{#if user.isActive}}
                                 <li>
                                     <button {{action "toggleSuspendUserModal"}} class="suspend" data-test-suspend-button>
-                                        Suspend User
+                                        暂停用户
                                     </button>
                                 </li>
                             {{/if}}
                             {{#if user.isSuspended}}
                                 <li>
                                     <button {{action "toggleUnsuspendUserModal"}} class="unsuspend" data-test-unsuspend-button>
-                                        Un-suspend User
+                                        恢复用户
                                     </button>
                                 </li>
                             {{/if}}
@@ -99,7 +99,7 @@
             <form class="user-profile" novalidate="novalidate" autocomplete="off" {{action (perform save) on="submit"}}>
 
                 <figure class="user-cover" style={{background-image-style user.coverImageUrl}}>
-                    <button type="button" class="gh-btn gh-btn-default user-cover-edit" {{action "toggleUploadCoverModal"}}><span>Change Cover</span></button>
+                    <button type="button" class="gh-btn gh-btn-default user-cover-edit" {{action "toggleUploadCoverModal"}}><span>修改封面</span></button>
                     {{#if showUploadCoverModal}}
                         {{gh-fullscreen-modal "upload-image"
                                                 model=(hash model=user imageProperty="coverImage")
@@ -109,8 +109,8 @@
                 </figure>
 
                 <figure class="user-image bg-whitegrey">
-                    <div id="user-image" class="img" style={{background-image-style user.profileImageUrl}}><span class="hidden">{{user.name}}"s Picture</span></div>
-                    <button type="button" {{action "toggleUploadImageModal"}} class="edit-user-image">Edit Picture</button>
+                    <div id="user-image" class="img" style={{background-image-style user.profileImageUrl}}><span class="hidden">{{user.name}}的照片</span></div>
+                    <button type="button" {{action "toggleUploadImageModal"}} class="edit-user-image">编辑照片</button>
                     {{#if showUploadImageModal}}
                         {{gh-fullscreen-modal "upload-image"
                                                 model=(hash model=user imageProperty="profileImage" paramsHash=(hash purpose="profile_image"))
@@ -123,11 +123,11 @@
                     <fieldset class="user-details-bottom">
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="name" class="first-form-group"}}
-                            <label for="user-name">Full Name</label>
+                            <label for="user-name">全称</label>
                             {{gh-text-input
                                 id="user-name"
                                 class="user-name"
-                                placeholder="Full Name"
+                                placeholder="全称"
                                 autocorrect="off"
                                 value=(readonly user.name)
                                 input=(action (mut user.name) value="target.value")
@@ -137,7 +137,7 @@
                             {{#if user.errors.name}}
                                 {{gh-error-message errors=user.errors property="name" data-test-error="user-name"}}
                             {{else}}
-                                <p>Use your real name so people can recognise you</p>
+                                <p>使用你的真实姓名以便其他人识别</p>
                             {{/if}}
                         {{/gh-form-group}}
 
@@ -160,7 +160,7 @@
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="email"}}
-                            <label for="user-email">Email</label>
+                            <label for="user-email">电子邮箱</label>
                             {{!-- Administrators only see text of Owner's email address but not input --}}
                             {{#if canChangeEmail}}
                                 {{gh-text-input
@@ -179,12 +179,12 @@
                             {{else}}
                                 <span>{{user.email}}</span>
                             {{/if}}
-                            <p>Used for notifications</p>
+                            <p>用于接收通知</p>
                         {{/gh-form-group}}
 
                         {{#if rolesDropdownIsVisible}}
                             <div class="form-group">
-                                <label for="user-role">Role</label>
+                                <label for="user-role">角色</label>
                                 <span class="gh-select" tabindex="0">
                                     {{one-way-select
                                         id="new-user-role"
@@ -195,12 +195,12 @@
                                         update=(action "changeRole")
                                     }}
                                 </span>
-                                <p>What permissions should this user have?</p>
+                                <p>此用户应该具有什么权限？</p>
                             </div>
                         {{/if}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="location"}}
-                            <label for="user-location">Location</label>
+                            <label for="user-location">位置</label>
                             {{gh-text-input
                                 id="user-location"
                                 value=(readonly user.location)
@@ -208,11 +208,11 @@
                                 focus-out=(action "validate" "location" target=user)
                                 data-test-location-input=true}}
                             {{gh-error-message errors=user.errors property="location" data-test-error="user-location"}}
-                            <p>Where in the world do you live?</p>
+                            <p>你生活在哪里？</p>
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="website"}}
-                            <label for="user-website">Website</label>
+                            <label for="user-website">网站</label>
                             {{gh-text-input
                                 type="url"
                                 id="user-website"
@@ -224,11 +224,11 @@
                                 focus-out=(action "validate" "website" target=user)
                                 data-test-website-input=true}}
                             {{gh-error-message errors=user.errors property="website" data-test-error="user-website"}}
-                            <p>Have a website or blog other than this one? Link it!</p>
+                            <p>有其他的网站或者博客吗？链接一下！</p>
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="facebook"}}
-                            <label for="user-facebook">Facebook Profile</label>
+                            <label for="user-facebook">脸书简介</label>
                             {{gh-text-input
                                 type="url"
                                 placeholder="https://www.facebook.com/username"
@@ -241,11 +241,11 @@
                                 data-test-facebook-input=true
                             }}
                             {{gh-error-message errors=user.errors property="facebook" data-test-error="user-facebook"}}
-                            <p>URL of your personal Facebook Profile</p>
+                            <p>你的脸书个人主页</p>
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="twitter"}}
-                            <label for="user-twitter">Twitter Profile</label>
+                            <label for="user-twitter">推特简介</label>
                             {{gh-text-input
                                 type="url"
                                 placeholder="https://twitter.com/username"
@@ -258,11 +258,11 @@
                                 data-test-twitter-input=true
                             }}
                             {{gh-error-message errors=user.errors property="twitter" data-test-error="user-twitter"}}
-                            <p>URL of your personal Twitter profile</p>
+                            <p>你的推特个人主页</p>
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="bio" class="bio-container"}}
-                            <label for="user-bio">Bio</label>
+                            <label for="user-bio">个人简介</label>
                             {{gh-textarea
                                 id="user-bio"
                                 value=(readonly user.bio)
@@ -272,8 +272,8 @@
                             }}
                             {{gh-error-message errors=user.errors property="bio" data-test-error="user-bio"}}
                             <p>
-                                Write about you, in 200 characters or less.
-                                {{gh-count-characters user.bio}}
+                                介绍一下自己吧，200字符以内。
+                                已使用 {{gh-count-characters user.bio}} 个字符。
                             </p>
                         {{/gh-form-group}}
 
@@ -289,7 +289,7 @@
                         <fieldset class="user-details-password">
                             {{#if isOwnProfile}}
                                 {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="password"}}
-                                    <label for="user-password-old">Old Password</label>
+                                    <label for="user-password-old">原密码</label>
                                     {{gh-text-input
                                         type="password"
                                         id="user-password-old"
@@ -306,7 +306,7 @@
                             {{/if}}
 
                             {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="newPassword"}}
-                                <label for="user-password-new">New Password</label>
+                                <label for="user-password-new">新密码</label>
                                 {{gh-text-input
                                     value=(readonly user.newPassword)
                                     type="password"
@@ -322,7 +322,7 @@
                             {{/gh-form-group}}
 
                             {{#gh-form-group errors=user.errors hasValidated=user.hasValidated property="ne2Password"}}
-                                <label for="user-new-password-verification">Verify Password</label>
+                                <label for="user-new-password-verification">验证密码</label>
                                 {{gh-text-input
                                     value=(readonly user.ne2Password)
                                     type="password"
@@ -337,7 +337,7 @@
                             {{/gh-form-group}}
 
                             <div class="form-group">
-                                {{gh-task-button "Change Password" class="gh-btn gh-btn-red gh-btn-icon button-change-password" task=user.saveNewPassword data-test-save-pw-button=true}}
+                                {{gh-task-button "修改密码" class="gh-btn gh-btn-red gh-btn-icon button-change-password" task=user.saveNewPassword data-test-save-pw-button=true}}
                             </div>
                         </fieldset>
                     </div>

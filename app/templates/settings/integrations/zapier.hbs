@@ -1,7 +1,7 @@
 <section class="gh-canvas">
     <GhCanvasHeader class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            {{#link-to "settings.integrations" data-test-link="integrations-back"}}Integrations{{/link-to}}
+            {{#link-to "settings.integrations" data-test-link="integrations-back"}}集成{{/link-to}}
             <span>{{svg-jar "arrow-right"}}</span>
             Zapier
         </h2>
@@ -16,7 +16,7 @@
             </div>
             <div class="app-cell">
                 <h3>Zapier</h3>
-                <p>Automation for your favourite apps</p>
+                <p>为你喜欢的应用建立自动化流程</p>
             </div>
         </section>
 
@@ -34,9 +34,9 @@
                                     <div class="pt1 pr3 pb1 pl3 bg-black-70 child br3 f8 nudge-top--4 nudge-right--1">
                                         <button type="button" {{action (perform copyAdminKey)}} class="white fw4 flex items-center">
                                             {{#if copyAdminKey.isRunning}}
-                                                {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
+                                                {{svg-jar "check-circle" class="w3 v-mid mr2"}} 已复制
                                             {{else}}
-                                                Copy
+                                                复制
                                             {{/if}}
                                         </button>
                                     </div>
@@ -55,9 +55,9 @@
                                     <div class="pt1 pr3 pb1 pl3 bg-black-70 child br3 f8 nudge-top--4 nudge-right--1">
                                         <button type="button" {{action (perform copyApiUrl)}} class="white fw4 flex items-center">
                                             {{#if copyApiUrl.isRunning}}
-                                                {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
+                                                {{svg-jar "check-circle" class="w3 v-mid mr2"}} 已复制
                                             {{else}}
-                                                Copy
+                                                复制
                                             {{/if}}
                                         </button>
                                     </div>
@@ -71,8 +71,8 @@
 
         <div class="mt12" id="zapier-toggle">
             <div class="gh-setting-content gh-setting-content--no-action">
-                <div class="gh-setting-title">Zapier Templates</div>
-                <div class="gh-setting-desc mt1">Explore pre-built templates for common automation tasks</div>
+                <div class="gh-setting-title">Zapier模版</div>
+                <div class="gh-setting-desc mt1">浏览常规自动化任务的预设模版</div>
                 <div class="gh-setting-content-extended">
                     <div id="zapier-templates">
                         {{!-- we don't want the script loading during tests because it errors --}}

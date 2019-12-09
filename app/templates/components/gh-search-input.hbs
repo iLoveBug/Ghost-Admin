@@ -1,11 +1,11 @@
 {{#power-select
     search=(action "search")
     onchange=(action "openSelected")
-    placeholder="Search site..."
+    placeholder="搜索网站"
     searchEnabled=false
     triggerComponent="gh-search-input-trigger"
     renderInPlace=true
-    loadingMessage="Loading"
+    loadingMessage="加载中"
     as |name select|}}
     {{highlighted-text name.title select.searchText}}
 {{/power-select}}

@@ -1,30 +1,30 @@
 <section class="gh-canvas">
     <GhCanvasHeader class="gh-canvas-header members-header">
-        <h2 class="gh-canvas-title" data-test-screen-title>Members</h2>
+        <h2 class="gh-canvas-title" data-test-screen-title>会员</h2>
         <section class="view-actions">
             <span class="dropdown">
                 {{#gh-dropdown-button dropdownName="members-actions-menu" classNames="gh-btn gh-btn-white gh-btn-icon only-has-icon gh-actions-cog" title="Members Actions" data-test-user-actions=true}}
                 <span>
                     {{svg-jar "settings"}}
-                    <span class="hidden">Members Actions</span>
+                    <span class="hidden">会员操作</span>
                 </span>
                 {{/gh-dropdown-button}}
                 {{#gh-dropdown name="members-actions-menu" tagName="ul" classNames="gh-member-actions-menu dropdown-menu dropdown-triangle-top-right"}}
                 <li>
                     {{#link-to "members.import" class="mr2" data-test-link="import-csv"}}
-                    <span>Import CSV </span>
+                    <span>导入CSV </span>
                     {{/link-to}}
                 </li>
                 <li>
                     <a href="#" {{action 'exportData'}} class="mr2">
-                        <span>Export CSV </span>
+                        <span>导出CSV </span>
                     </a>
                 </li>
                 {{/gh-dropdown}}
             </span>
             <div class="relative gh-members-header-search">
                 {{svg-jar "search" class="gh-input-search-icon"}}
-                <GhTextInput placeholder="Search members..." @value={{this.searchText}} @input={{action (mut this.searchText) value="target.value"}} class="gh-members-list-searchfield {{if this.searchText "active"}}" />
+                <GhTextInput placeholder="搜索会员..." @value={{this.searchText}} @input={{action (mut this.searchText) value="target.value"}} class="gh-members-list-searchfield {{if this.searchText "active"}}" />
             </div>
         </section>
     </GhCanvasHeader>
@@ -35,16 +35,16 @@
                     <li class="gh-list-row header">
                         <div class="gh-list-header">
                             {{#if this.searchText}}
-                                Search result
+                                搜素结果
                             {{else}}
                                 {{#if this.fetchMembers.lastSuccessful}}
-                                    {{pluralize memberCount "member"}}
+                                    {{memberCount}} 个会员
                                 {{else}}
-                                    Loading...
+                                    加载中...
                                 {{/if}}
                             {{/if}}
                         </div>
-                        <div class="gh-list-header gh-list-cellwidth-20 nowrap">Created</div>
+                        <div class="gh-list-header gh-list-cellwidth-20 nowrap">已创建</div>
                         <div class="gh-list-header gh-list-cellwidth-chevron"></div>
                     </li>
                     {{#vertical-collection
@@ -70,9 +70,9 @@
                             <div class="no-posts">
                                 {{svg-jar "members-placeholder" class="gh-members-placeholder"}}
                                 {{#if this.searchText}}
-                                    <h3>No members found!</h3>
+                                    <h3>未找到会员！</h3>
                                 {{else}}
-                                    <h3>You don't have any members</h3>
+                                    <h3>你没有任何会员！</h3>
                                 {{/if}}
                             </div>
                         </li>

@@ -13,7 +13,7 @@ export default BaseValidator.extend(PasswordValidatorMixin, {
         let name = model.get('name');
 
         if (!validator.isLength(name || '', 1)) {
-            model.get('errors').add('name', 'Please enter a name.');
+            model.get('errors').add('name', '请输入姓名');
             model.get('hasValidated').addObject('email');
             this.invalidate();
         }
@@ -23,10 +23,10 @@ export default BaseValidator.extend(PasswordValidatorMixin, {
         let email = model.get('email');
 
         if (isBlank(email)) {
-            model.get('errors').add('email', 'Please enter an email.');
+            model.get('errors').add('email', '请输入邮件地址');
             this.invalidate();
         } else if (!validator.isEmail(email)) {
-            model.get('errors').add('email', 'Invalid Email.');
+            model.get('errors').add('email', '无效邮件地址');
             this.invalidate();
         }
 

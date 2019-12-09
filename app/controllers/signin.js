@@ -91,7 +91,7 @@ export default Controller.extend(ValidationEngine, {
                 .perform(authStrategy, [signin.get('identification'), signin.get('password')])
                 .then(() => true);
         } catch (error) {
-            this.set('flowErrors', 'Please fill out the form to sign in.');
+            this.set('flowErrors', '请填充表单登录');
         }
     }).drop(),
 
@@ -108,14 +108,14 @@ export default Controller.extend(ValidationEngine, {
             yield this.validate({property: 'forgotPassword'});
             yield this.ajax.post(forgottenUrl, {data: {passwordreset: [{email}]}});
             notifications.showAlert(
-                'Please check your email for instructions.',
+                '请检查你的邮件进行下一步操作',
                 {type: 'info', key: 'forgot-password.send.success'}
             );
             return true;
         } catch (error) {
             // ValidationEngine throws "undefined" for failed validation
             if (!error) {
-                return this.set('flowErrors', 'We need your email address to reset your password!');
+                return this.set('flowErrors', '我们需要你的电子邮箱账号来重置密码！');
             }
 
             if (isVersionMismatchError(error)) {
@@ -131,7 +131,7 @@ export default Controller.extend(ValidationEngine, {
                     this.get('signin.errors').add('identification', '');
                 }
             } else {
-                notifications.showAPIError(error, {defaultErrorText: 'There was a problem with the reset, please try again.', key: 'forgot-password.send'});
+                notifications.showAPIError(error, {defaultErrorText: '密码重置出现问题，请再试一次！', key: 'forgot-password.send'});
             }
         }
     })

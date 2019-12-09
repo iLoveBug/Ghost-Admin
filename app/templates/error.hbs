@@ -14,12 +14,12 @@
 
     {{#if stack}}
         <section class="error-stack">
-            <h3>Stack Trace</h3>
+            <h3>调用栈</h3>
             <p><strong>{{message}}</strong></p>
             <ul class="error-stack-list">
                 {{#each stack as |item|}}
                     <li>
-                        at
+                        位于
                         {{#if item.function}}<em class="error-stack-function">{{item.function}}</em>{{/if}}
                         <span class="error-stack-file">({{item.at}})</span>
                     </li>

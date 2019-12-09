@@ -3,7 +3,7 @@ import ghostPaths from 'ghost-admin/utils/ghost-paths';
 import {computed} from '@ember/object';
 
 export default ModalComponent.extend({
-    labelText: 'Select or drag-and-drop a CSV File',
+    labelText: '选择或者拖拽一个CSV文件',
 
     response: null,
     closeDisabled: false,

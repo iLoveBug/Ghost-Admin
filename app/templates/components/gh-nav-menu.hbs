@@ -20,55 +20,55 @@
             <li class="relative">
                 <span {{action "transitionToOrRefreshSite" on="click"}}>
                     {{#link-to "site" data-test-nav="site" current-when=isOnSite preventDefault=false}}
-                        {{svg-jar "house"}} View site
+                        {{svg-jar "house"}} 查看网站
                     {{/link-to}}
                 </span>
-                <a href="{{config.blogUrl}}/" class="gh-secondary-action" title="Open site in new tab" target="_blank">
+                <a href="{{config.blogUrl}}/" class="gh-secondary-action" title="在新标签页中打开网站" target="_blank">
                     <span>{{svg-jar "expand"}}</span>
                 </a>
             </li>
         </ul>
         <ul class="gh-nav-list gh-nav-manage">
-            <li class="gh-nav-list-h">Manage</li>
+            <li class="gh-nav-list-h">管理</li>
             <li class="gh-nav-list-new relative">
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
                 {{#if (eq router.currentRouteName "posts")}}
-                    {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                    {{#link-to "posts" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="posts"}}{{svg-jar "content"}}文章{{/link-to}}
                 {{else}}
-                    {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}Posts{{/link-to}}
+                    {{#link-to "posts" data-test-nav="posts"}}{{svg-jar "content"}}文章{{/link-to}}
                 {{/if}}
                 {{#link-to "editor.new" "post" classNames="gh-secondary-action gh-nav-new-post" alt="New story" data-test-nav="new-story"}}<span>{{svg-jar "add-stroke"}}</span>{{/link-to}}
             </li>
             <li>
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
                 {{#if (eq router.currentRouteName "pages")}}
-                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "page"}}页面{{/link-to}}
                 {{else}}
-                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}Pages{{/link-to}}
+                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "page"}}页面{{/link-to}}
                 {{/if}}
             </li>
             {{#if (gh-user-can-admin session.user)}}
-                <li>{{#link-to "tags" data-test-nav="tags"}}{{svg-jar "tag"}}Tags{{/link-to}}</li>
+                <li>{{#link-to "tags" data-test-nav="tags"}}{{svg-jar "tag"}}标签{{/link-to}}</li>
             {{/if}}
             {{#if (and feature.members (gh-user-can-admin session.user))}}
                 <li>
-                    {{#link-to "members" current-when="members member" data-test-nav="members"}}{{svg-jar "members"}}Members{{/link-to}}
+                    {{#link-to "members" current-when="members member" data-test-nav="members"}}{{svg-jar "members"}}会员{{/link-to}}
                 </li>
             {{/if}}
-            <li>{{#link-to "staff" data-test-nav="staff"}}{{svg-jar "staff"}}Staff{{/link-to}}</li>
+            <li>{{#link-to "staff" data-test-nav="staff"}}{{svg-jar "staff"}}成员{{/link-to}}</li>
         </ul>
         {{#if (gh-user-can-admin session.user)}}
             <ul class="gh-nav-list gh-nav-settings">
-                <li class="gh-nav-list-h">Settings</li>
-                <li>{{#link-to "settings.general" data-test-nav="settings"}}{{svg-jar "settings"}}General{{/link-to}}</li>
-                <li>{{#link-to "settings.design" data-test-nav="design"}}{{svg-jar "paintbrush"}}Design{{/link-to}}</li>
-                <li>{{#link-to "settings.code-injection" data-test-nav="code-injection"}}{{svg-jar "brackets"}}Code injection{{/link-to}}</li>
-                <li>{{#link-to "settings.integrations" current-when=isIntegrationRoute data-test-nav="integrations"}}{{svg-jar "modules"}}Integrations{{/link-to}}</li>
+                <li class="gh-nav-list-h">设置</li>
+                <li>{{#link-to "settings.general" data-test-nav="settings"}}{{svg-jar "settings"}}通用{{/link-to}}</li>
+                <li>{{#link-to "settings.design" data-test-nav="design"}}{{svg-jar "paintbrush"}}设计{{/link-to}}</li>
+                <li>{{#link-to "settings.code-injection" data-test-nav="code-injection"}}{{svg-jar "brackets"}}代码注入{{/link-to}}</li>
+                <li>{{#link-to "settings.integrations" current-when=isIntegrationRoute data-test-nav="integrations"}}{{svg-jar "modules"}}集成{{/link-to}}</li>
                 <li class="relative">
                     <button class="gh-secondary-action" title="Toggle Night shift" {{action (toggle "nightShift" this.feature)}}>
                         <span>{{svg-jar "nightshift"}}</span>
                     </button>
-                    {{#link-to "settings.labs" data-test-nav="labs"}}{{svg-jar "labs"}}Labs{{/link-to}}
+                    {{#link-to "settings.labs" data-test-nav="labs"}}{{svg-jar "labs"}}实验室{{/link-to}}
                 </li>
             </ul>
         {{/if}}
@@ -111,12 +111,12 @@
                     {{action dropdown.actions.close on="click" preventDefault=false}}>
                     <li role="presentation">
                         {{#link-to "about" classNames="dropdown-item" role="menuitem" tabindex="-1" data-test-nav="about"}}
-                            {{svg-jar "store"}} About Ghost
+                            {{svg-jar "store"}} 关于
                         {{/link-to}}
                     </li>
                     <li role="presentation">
                         <button class="dropdown-item" role="menuitem" tabindex="-1" {{on "click" this.whatsNew.showModal}}>
-                            {{svg-jar "gift"}} What's new?
+                            {{svg-jar "gift"}} 新特性
                             {{#if this.whatsNew.hasNew}}
                                 <div class="flex-grow-1 flex justify-end"><span class="dib w2 h2 top-0 right-0 bg-blue br-100"></span></div>
                             {{/if}}
@@ -125,12 +125,12 @@
                     <li class="divider"></li>
                     <li role="presentation">
                         {{#link-to "staff.user" session.user.slug classNames="dropdown-item" role="menuitem" tabindex="-1" data-test-nav="user-profile"}}
-                            {{svg-jar "user-circle"}} Your Profile
+                            {{svg-jar "user-circle"}} 我的
                         {{/link-to}}
                     </li>
                     <li role="presentation">
                         <a class="dropdown-item" role="menuitem" tabindex="-1" href="https://ghost.org/docs/" target="_blank">
-                            {{svg-jar "ambulance"}} Support Center
+                            {{svg-jar "ambulance"}} 支持中心
                         </a>
                     </li>
                     <li role="presentation">
@@ -143,7 +143,7 @@
                     </li>
                     <li role="presentation">
                         <a class="dropdown-item" role="menuitem" tabindex="-1" href="https://ghost.org/faq/using-ghost/" target="_blank">
-                            {{svg-jar "book-open"}} How to Use Ghost
+                            {{svg-jar "book-open"}} 如何使用
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -164,7 +164,7 @@
 
                     <li role="presentation">
                         {{#link-to "signout" classNames="dropdown-item user-menu-signout" role="menuitem" tabindex="-1"}}
-                            {{svg-jar "signout"}} Sign Out
+                            {{svg-jar "signout"}} 退出
                         {{/link-to}}
                     </li>
                 </ul>

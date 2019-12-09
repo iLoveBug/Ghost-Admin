@@ -3,11 +3,11 @@
     <section class="bb b--whitegrey pa5">
         <div class="flex justify-between">
             <div>
-                <h4 class="gh-setting-title">Connect to Stripe</h4>
-                <p class="gh-setting-desc pa0 ma0">Configure API keys to create subscriptions and take payments</p>
+                <h4 class="gh-setting-title">连接到Stripe</h4>
+                <p class="gh-setting-desc pa0 ma0">配置API keys以创建订阅与支付</p>
             </div>
             <div>
-                <button type="button" class="gh-btn" {{action (toggle "membersStripeOpen" this)}} data-test-toggle-membersstripe><span>{{if membersStripeOpen "Close" "Expand"}}</span></button>
+                <button type="button" class="gh-btn" {{action (toggle "membersStripeOpen" this)}} data-test-toggle-membersstripe><span>{{if membersStripeOpen "收起" "展开"}}</span></button>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
             <div class="flex flex-column flex-row-l items-start justify-between mb4 mt6">
                 <div class="w-100 w-50-l">
                     <div class="mb4">
-                        <label class="fw6 f8">Stripe Publishable key</label>
+                        <label class="fw6 f8">Stripe公钥</label>
                         {{gh-text-input
                             type="password"
                             value=(readonly subscriptionSettings.stripeConfig.public_token)
@@ -24,7 +24,7 @@
                         }}
                     </div>
                     <div class="nudge-top--3">
-                        <label class="fw6 f8 mt4">Stripe Secret key</label>
+                        <label class="fw6 f8 mt4">Stripe密钥</label>
                         {{gh-text-input
                             type="password"
                             value=(readonly subscriptionSettings.stripeConfig.secret_token)
@@ -32,19 +32,19 @@
                             class="mt1 password"
                         }}
                         <a href="https://dashboard.stripe.com/account/apikeys" target="_blank" class="mt1 fw4 f8">
-                            Find your Stripe API keys here &raquo;
+                            在此查找你的 Stripe API 密钥 &raquo;
                         </a>
                     </div>
                 </div>
                 <div class="ml0 ml5-l mt6">
                     <div class="gh-members-stripe-info">
                         <div class="gh-members-stripe-info-header">
-                            <h4>How you get paid</h4>
+                            <h4>如何支付</h4>
                             {{svg-jar "stripe-verified-partner-badge" class="gh-members-stripe-badge"}}
                         </div>
                         <p class="f8 mt2 mb0">
-                            Stripe is our exclusive direct payments partner.<br />
-                            Ghost collects <strong>no fees</strong> on any payments! If you don’t have a Stripe account yet, you can <a href="https://stripe.com" target="_blank"  rel="noopener" class="gh-members-stripe-link">sign up here</a>.
+                            Stripe是我们排他性的支付合作伙伴。<br />
+                            Ghost 在所有支付中收取 <strong>零费用</strong> ! 如果你还没有Stripe账号，你可以 <a href="https://stripe.com" target="_blank"  rel="noopener" class="gh-members-stripe-link">在此注册</a>。
                         </p>
                     </div>
                 </div>
@@ -55,11 +55,11 @@
     <section class="bb b--whitegrey pa5">
         <div class="flex justify-between">
             <div>
-                <h4 class="gh-setting-title">Subscription pricing</h4>
-                <p class="gh-setting-desc pa0 ma0">Set monthly and yearly recurring subscription prices</p>
+                <h4 class="gh-setting-title">订阅价格</h4>
+                <p class="gh-setting-desc pa0 ma0">设置月度与年度自动订阅价格</p>
             </div>
             <div>
-                <button type="button" class="gh-btn" {{action (toggle "membersPricingOpen" this)}} data-test-toggle-memberspricing><span>{{if membersPricingOpen "Close" "Expand"}}</span></button>
+                <button type="button" class="gh-btn" {{action (toggle "membersPricingOpen" this)}} data-test-toggle-memberspricing><span>{{if membersPricingOpen "收起" "展开"}}</span></button>
             </div>
         </div>
 
@@ -67,7 +67,7 @@
             <div class="w-100 w-50-l flex flex-column flex-row-ns mt8">
                 <div class="w-100 w-50-ns mr3-ns">
                     {{#gh-form-group}}
-                    <label class="fw6 f8">Monthly price</label>
+                    <label class="fw6 f8">月度费用</label>
 
                     <div class="flex items-center justify-center mt1 gh-input-group gh-labs-price-label">
                         {{gh-text-input
@@ -75,33 +75,33 @@
                             type="number"
                             input=(action "setSubscriptionSettings" "month")
                         }}
-                        <span class="gh-input-append">USD/month</span>
+                        <span class="gh-input-append">USD/Monthly</span>
                     </div>
                     {{/gh-form-group}}
                 </div>
                 <div class="w-100 w-50-ns ml2-ns">
                     {{#gh-form-group class="description-container"}}
-                    <label class="fw6 f8">Yearly price</label>
+                    <label class="fw6 f8">年度费用</label>
                     <div class="flex items-center justify-center mt1 gh-input-group gh-labs-price-label">
                         {{gh-text-input
                                 value=(readonly subscriptionSettings.stripeConfig.plans.yearly.dollarAmount)
                                 type="number"
                                 input=(action "setSubscriptionSettings" "year")
                             }}
-                        <span class="gh-input-append">USD/year</span>
+                        <span class="gh-input-append">USD/Yearly</span>
                     </div>
                     {{/gh-form-group}}
                 </div>
             </div>
-            <div class="f8 fw4 midgrey">Currently only USD is supported, more currencies <a href="https://ghost.org/docs/members/" target="_blank" rel="noopener">coming soon</a></div>
+            <div class="f8 fw4 midgrey">当前只支持美元结算，更多货币 <a href="https://ghost.org/docs/members/" target="_blank" rel="noopener">即将上线</a></div>
         {{/liquid-if}}
     </section>
 
     <section class="bb b--whitegrey pa5">
         <div class="flex justify-between">
             <div>
-                <h4 class="gh-setting-title">Allow free member signup</h4>
-                <p class="gh-setting-desc pa0 ma0">If disabled, members can only be signed up via payment checkout or API integration</p>
+                <h4 class="gh-setting-title">允许免费会员注册</h4>
+                <p class="gh-setting-desc pa0 ma0">如果关闭此选项，会员只能通过交易账户与API集成来完成注册</p>
             </div>
             <div>
                 <div class="for-switch">
@@ -120,11 +120,11 @@
     <section class="bb b--whitegrey pa5">
         <div class="flex justify-between">
             <div>
-                <h4 class="gh-setting-title">Default post access</h4>
-                <p class="gh-setting-desc pa0 ma0">When a new post is created, who should have access to it?</p>
+                <h4 class="gh-setting-title">缺省文章访问</h4>
+                <p class="gh-setting-desc pa0 ma0">当新文章创建时，谁能够访问？</p>
             </div>
             <div>
-                <button type="button" class="gh-btn" {{action (toggle "membersPostAccessOpen" this)}} data-test-toggle-memberspostaccess><span>{{if membersPostAccessOpen "Close" "Expand"}}</span></button>
+                <button type="button" class="gh-btn" {{action (toggle "membersPostAccessOpen" this)}} data-test-toggle-memberspostaccess><span>{{if membersPostAccessOpen "关闭" "展开"}}</span></button>
             </div>
         </div>
 
@@ -134,8 +134,8 @@
                 {{action "setDefaultContentVisibility" "public" on="click"}}>
                 <div class="gh-radio-button" data-test-publishmenu-unpublished-option></div>
                 <div class="gh-radio-content">
-                    <div class="gh-radio-label">Public<br>
-                    <small class="midgrey">All site visitors to your site, no login required</small></div>
+                    <div class="gh-radio-label">公开<br>
+                    <small class="midgrey">所有网站访客都能查看，无需登录</small></div>
                 </div>
             </div>
 
@@ -143,8 +143,8 @@
                 {{action "setDefaultContentVisibility" "members" on="click"}}>
                 <div class="gh-radio-button" data-test-publishmenu-published-option></div>
                 <div class="gh-radio-content">
-                    <div class="gh-radio-label">Members only<br>
-                    <small class="midgrey">All logged-in members</small></div>
+                    <div class="gh-radio-label">注册会员<br>
+                    <small class="midgrey">所有注册会员</small></div>
                 </div>
             </div>
 
@@ -152,8 +152,8 @@
                 {{action "setDefaultContentVisibility" "paid" on="click"}}>
                 <div class="gh-radio-button" data-test-publishmenu-published-option></div>
                 <div class="gh-radio-content">
-                    <div class="gh-radio-label">Paid-members only<br>
-                    <small class="midgrey">Only logged-in members with an active Stripe subscription</small></div>
+                    <div class="gh-radio-label">付费会员<br>
+                    <small class="midgrey">仅限注册了Stripe订阅的会员用户</small></div>
                 </div>
             </div>
         </div>
@@ -163,18 +163,18 @@
     <section class="bb b--whitegrey pa5">
         <div class="flex justify-between">
             <div>
-                <h4 class="gh-setting-title">Email settings</h4>
-                <p class="gh-setting-desc pa0 ma0">Customise signup, signin and subscription emails</p>
+                <h4 class="gh-setting-title">邮件设置</h4>
+                <p class="gh-setting-desc pa0 ma0">定制登录、注册与订阅邮箱</p>
             </div>
             <div>
-                <button type="button" class="gh-btn" {{action (toggle "membersEmailOpen" this)}} data-test-toggle-membersemail><span>{{if membersEmailOpen "Close" "Expand"}}</span></button>
+                <button type="button" class="gh-btn" {{action (toggle "membersEmailOpen" this)}} data-test-toggle-membersemail><span>{{if membersEmailOpen "收起" "展开"}}</span></button>
             </div>
         </div>
 
         {{#liquid-if membersEmailOpen}}
         <div class="flex flex-column w-100 w-50-l flex mt8">
             {{#gh-form-group}}
-            <label class="fw6 f8">From Address</label>
+            <label class="fw6 f8">发送地址</label>
             <div class="flex items-center justify-center mt1 gh-input-group">
                 {{gh-text-input
                     value=(readonly subscriptionSettings.fromAddress)
@@ -183,7 +183,7 @@
                 }}
                 <span class="gh-input-append"> @{{config.blogDomain}}</span>
             </div>
-            <div class="f8 fw4 midgrey mt1">Your members will receive system emails from this address</div>
+            <div class="f8 fw4 midgrey mt1">你的会员将由此邮件地址收到邮件通知</div>
             {{/gh-form-group}}
         </div>
         {{/liquid-if}}

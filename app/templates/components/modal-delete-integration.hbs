@@ -1,13 +1,13 @@
 <header class="modal-header">
-    <h1>Are you sure?</h1>
+    <h1>确定吗？</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 <div class="modal-body">
     <p>
-        Deleting this integration will remove all webhooks and api keys associated with it.
+        删除此集成项将移除关联的 webhooks 和 api keys。
     </p>
 </div>
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn"><span>Cancel</span></button>
-    {{gh-task-button "Delete Integration" successText="Deleted" task=deleteIntegration class="gh-btn gh-btn-red gh-btn-icon"}}
+    <button {{action "closeModal"}} class="gh-btn"><span>取消</span></button>
+    {{gh-task-button "删除集成项" successText="已删除" task=deleteIntegration class="gh-btn gh-btn-red gh-btn-icon"}}
 </div>

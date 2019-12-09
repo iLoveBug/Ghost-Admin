@@ -1,4 +1,4 @@
-{{#link-to "tags.tag" tag class="gh-list-data gh-tag-list-title" title="Edit tag"}}
+{{#link-to "tags.tag" tag class="gh-list-data gh-tag-list-title" title="编辑标签"}}
     <h3 class="gh-tag-list-name">
         {{this.tag.name}}
     </h3>
@@ -9,21 +9,21 @@
     {{/if}}
 {{/link-to}}
 
-{{#link-to "tags.tag" tag class="gh-list-data middarkgrey f8 gh-tag-list-slug gh-list-cellwidth-10" title="Edit tag"}}
+{{#link-to "tags.tag" tag class="gh-list-data middarkgrey f8 gh-tag-list-slug gh-list-cellwidth-10" title="编辑标签"}}
     <span title="{{this.slug}}">{{this.slug}}</span>
 {{/link-to}}
 
 {{#if this.postsCount}}
-    {{#link-to "posts" (query-params type=null author=null tag=tag.slug order=null) class="gh-list-data blue gh-tag-list-posts-count gh-list-cellwidth-10 f8" title=(concat "List posts tagged with '" this.tag.name "'")}}
+    {{#link-to "posts" (query-params type=null author=null tag=tag.slug order=null) class="gh-list-data blue gh-tag-list-posts-count gh-list-cellwidth-10 f8" title=(concat "列出标记为'" this.tag.name "'的所有文章")}}
         <span class="nowrap">{{this.postsLabel}}</span>
     {{/link-to}}
 {{else}}
-    {{#link-to "tags.tag" tag class="gh-list-data gh-tag-list-posts-count gh-list-cellwidth-10" title="Edit tag"}}
+    {{#link-to "tags.tag" tag class="gh-list-data gh-tag-list-posts-count gh-list-cellwidth-10" title="编辑标签"}}
         <span class="nowrap f8 midlightgrey">{{this.postsLabel}}</span>
     {{/link-to}}
 {{/if}}
 
-{{#link-to "tags.tag" tag class="gh-list-data gh-list-cellwidth-min gh-tag-list-chevron" title="Edit tag"}}
+{{#link-to "tags.tag" tag class="gh-list-data gh-list-cellwidth-min gh-tag-list-chevron" title="编辑标签"}}
     <div class="flex items-center justify-end w-100 h-100">
         <span class="nr2">{{svg-jar "arrow-right" class="w6 h6 fill-midgrey pa1"}}</span>
     </div>

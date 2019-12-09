@@ -63,7 +63,7 @@ describe('Integration: Component: gh-image-uploader', function () {
 
     it('renders form with supplied alt text', async function () {
         await render(hbs`{{gh-image-uploader image=image altText="text test"}}`);
-        expect(find('[data-test-file-input-description]')).to.have.trimmed.text('Upload image of "text test"');
+        expect(find('[data-test-file-input-description]')).to.have.trimmed.text('上传图片 "text test"');
     });
 
     it('renders form with supplied text', async function () {

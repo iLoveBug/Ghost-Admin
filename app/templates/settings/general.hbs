@@ -2,10 +2,10 @@
     <div>
     <GhCanvasHeader class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            General settings
+            通用设置
         </h2>
         <section class="view-actions">
-            {{gh-task-button "Save settings" task=save class="gh-btn gh-btn-blue gh-btn-icon" data-test-save-button=true}}
+            {{gh-task-button "保存设置" task=save class="gh-btn gh-btn-blue gh-btn-icon" data-test-save-button=true}}
         </section>
     </GhCanvasHeader>
 
@@ -18,12 +18,12 @@
 
     <section class="view-container">
 
-        <div class="gh-setting-header gh-first-header">Publication info</div>
+        <div class="gh-setting-header gh-first-header">信息</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5 mt2">
             <div class="gh-setting-first">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Title &amp; description</div>
-                    <div class="gh-setting-desc">The details used to identify your publication around the web</div>
+                    <div class="gh-setting-title">标题 &amp; 描述</div>
+                    <div class="gh-setting-desc">展示你的站点的详细信息</div>
                     {{#liquid-if pubInfoOpen}}
                     <div class="gh-setting-content-extended">
                         {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="title"}}
@@ -34,7 +34,7 @@
                                 data-test-title-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="title"}}
-                            <p>The name of your site</p>
+                            <p>站点名称</p>
                         {{/gh-form-group}}
 
                         {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="description" class="description-container"}}
@@ -45,20 +45,20 @@
                                 data-test-description-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="description"}}
-                            <p>Used in your theme, meta data and search results</p>
+                            <p>在主题中使用，元数据和搜索结果</p>
                         {{/gh-form-group}}
                     </div>
                     {{/liquid-if}}
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn" {{action (toggle "pubInfoOpen" this)}} data-test-toggle-pub-info><span>{{if pubInfoOpen "Close" "Expand"}}</span></button>
+                    <button type="button" class="gh-btn" {{action (toggle "pubInfoOpen" this)}} data-test-toggle-pub-info><span>{{if pubInfoOpen "收起" "展开"}}</span></button>
                 </div>
             </div>
 
             <div class="gh-setting">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Site timezone</div>
-                    <div class="gh-setting-desc">Set the time and date of your publication, used for all published posts</div>
+                    <div class="gh-setting-title">时区</div>
+                    <div class="gh-setting-desc">设置日期与时间的时区，对所有文章有效</div>
                     {{#liquid-if timezoneOpen}}
                     <div class="gh-setting-content-extended">
                         {{gh-timezone-select
@@ -69,13 +69,13 @@
                     {{/liquid-if}}
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn" {{action (toggle "timezoneOpen" this)}} data-test-toggle-timezone><span>{{if timezoneOpen "Close" "Expand"}}</span></button>
+                    <button type="button" class="gh-btn" {{action (toggle "timezoneOpen" this)}} data-test-toggle-timezone><span>{{if timezoneOpen "收起" "展开"}}</span></button>
                 </div>
             </div>
             <div class="gh-setting-last">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Publication Language</div>
-                    <div class="gh-setting-desc">Set the language/locale which is used on your site</div>
+                    <div class="gh-setting-title">语言</div>
+                    <div class="gh-setting-desc">设置本地化语言</div>
                     {{#liquid-if defaultLocaleOpen}}
                     <div class="gh-setting-content-extended">
                         {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="defaultLocale"}}
@@ -86,18 +86,18 @@
                                 data-test-default-locale-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="defaultLocale"}}
-                            <p>Default: English (<strong>en</strong>); you can add translation files to your theme for <a href="https://ghost.org/docs/api/handlebars-themes/helpers/translate/" target="_blank" rel="noopener">any language</a></p>
+                            <p>缺省使用: 英文 (<strong>en</strong>); 可以为主题添加翻译 <a href="https://ghost.org/docs/api/handlebars-themes/helpers/translate/" target="_blank" rel="noopener">任何语言</a>的版本</p>
                         {{/gh-form-group}}
                     </div>
                     {{/liquid-if}}
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn" {{action (toggle "defaultLocaleOpen" this)}} data-test-toggle-default-locale><span>{{if defaultLocaleOpen "Close" "Expand"}}</span></button>
+                    <button type="button" class="gh-btn" {{action (toggle "defaultLocaleOpen" this)}} data-test-toggle-default-locale><span>{{if defaultLocaleOpen "收起" "展开"}}</span></button>
                 </div>
             </div>
         </div>
 
-        <div class="gh-setting-header">Publication identity</div>
+        <div class="gh-setting-header">标识</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
             <div class="gh-setting-first" data-test-setting="icon">
                 {{#gh-uploader
@@ -107,8 +107,8 @@
                     as |uploader|
                 }}
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Publication icon</div>
-                    <div class="gh-setting-desc">A square, social icon used in the UI of your publication, at least 60x60px</div>
+                    <div class="gh-setting-title">图标</div>
+                    <div class="gh-setting-desc">在网页界面中使用的正方形图标，最小60x60像素</div>
                     {{#each uploader.errors as |error|}}
                         <div class="gh-setting-error" data-test-error="icon">{{or error.context error.message}}</div>
                     {{/each}}
@@ -119,11 +119,11 @@
                     {{else if settings.icon}}
                         <img class="blog-icon" src="{{settings.icon}}" onclick={{action "triggerFileDialog"}} alt="icon" data-test-icon-img>
                         <button type="button" class="gh-setting-action-smallimg-delete" {{action "removeImage" "icon"}} data-test-delete-image="icon">
-                            <span>delete</span>
+                            <span>删除</span>
                         </button>
                     {{else}}
                         <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="icon">
-                            <span>Upload Image</span>
+                            <span>上传图片</span>
                         </button>
                     {{/if}}
                     <div style="display:none">
@@ -139,8 +139,8 @@
                     as |uploader|
                 }}
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Publication logo</div>
-                    <div class="gh-setting-desc">The primary logo for your brand displayed across your theme, should be transparent and at least 600px x 72px</div>
+                    <div class="gh-setting-title">LOGO</div>
+                    <div class="gh-setting-desc">品牌的主要LOGO，透明、至少600px x 72像素</div>
                     {{#each uploader.errors as |error|}}
                         <div class="gh-setting-error" data-test-error="logo">{{or error.context error.message}}</div>
                     {{/each}}
@@ -151,11 +151,11 @@
                     {{else if settings.logo}}
                         <img class="blog-logo" src="{{settings.logo}}"  onclick={{action "triggerFileDialog"}} alt="logo" data-test-logo-img>
                         <button type="button" class="gh-setting-action-smallimg-delete" {{action "removeImage" "logo"}} data-test-delete-image="logo">
-                            <span>delete</span>
+                            <span>删除</span>
                         </button>
                     {{else}}
                         <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="logo">
-                            <span>Upload Image</span>
+                            <span>上传图片</span>
                         </button>
                     {{/if}}
                     <div style="display:none">
@@ -171,8 +171,8 @@
                     as |uploader|
                 }}
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Publication cover</div>
-                    <div class="gh-setting-desc">An optional large background image for your site</div>
+                    <div class="gh-setting-title">封面</div>
+                    <div class="gh-setting-desc">可选的网站背景大图</div>
                     {{#each uploader.errors as |error|}}
                         <div class="gh-setting-error" data-test-error="coverImage">{{or error.context error.message}}</div>
                     {{/each}}
@@ -183,11 +183,11 @@
                     {{else if settings.coverImage}}
                         <img class="blog-cover" src="{{settings.coverImage}}"  onclick={{action "triggerFileDialog"}} alt="cover photo" data-test-cover-img>
                         <button type="button" class="gh-setting-action-largeimg-delete" {{action "removeImage" "coverImage"}} data-test-delete-image="coverImage">
-                            <span>delete</span>
+                            <span>上传</span>
                         </button>
                     {{else}}
                         <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="coverImage">
-                            <span>Upload Image</span>
+                            <span>上传图片</span>
                         </button>
                     {{/if}}
                     <div style="display:none">
@@ -198,16 +198,16 @@
             </div>
         </div>
 
-        <div class="gh-setting-header">Site meta settings</div>
+        <div class="gh-setting-header">元数据设置</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
             <div class="gh-setting-first flex-column">
                 <div class="flex flex-row justify-between w-100">
                     <div class="gh-setting-content">
-                        <div class="gh-setting-title">Meta data</div>
-                        <div class="gh-setting-desc">Extra content for search engines</div>
+                        <div class="gh-setting-title">元数据</div>
+                        <div class="gh-setting-desc">搜索引擎的额外内容</div>
                     </div>
                     <div class="gh-setting-action">
-                        <button type="button" class="gh-btn" {{action (toggle "metaDataOpen" this)}} data-test-toggle-meta><span>{{if metaDataOpen "Close" "Expand"}}</span></button>
+                        <button type="button" class="gh-btn" {{action (toggle "metaDataOpen" this)}} data-test-toggle-meta><span>{{if metaDataOpen "收起" "展开"}}</span></button>
                     </div>
                 </div>
                 {{#liquid-if metaDataOpen}}
@@ -215,7 +215,7 @@
                         <div class="flex flex-column flex-row-ns">
                             <div class="flex-basis-1-2-m flex-basis-2-3-l mr5">
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="metaTitle"}}
-                                    <label for="metaTitle">Meta title</label>
+                                    <label for="metaTitle">元数据标题</label>
                                     {{gh-text-input
                                         id="metaTitle"
                                         type="text"
@@ -225,10 +225,10 @@
                                         data-test-input="metaTitle"
                                     }}
                                     {{gh-error-message errors=this.settings.errors property="metaTitle" data-test-error="metaTitle"}}
-                                    <p>Recommended: <b>70</b> characters. You’ve used <b>{{gh-count-down-characters this.settings.metaTitle 70}}</b></p>
+                                    <p>建议最多 <b>70</b> 个字符。已使用 <b>{{gh-count-down-characters this.settings.metaTitle 70}} 个字符</b></p>
                                 {{/gh-form-group}}
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="metaDescription"}}
-                                    <label for="metaDescription">Meta description</label>
+                                    <label for="metaDescription">元数据描述</label>
                                     {{gh-textarea
                                         id="metaDescription"
                                         type="text"
@@ -238,11 +238,11 @@
                                         data-test-input="metaDescription"
                                     }}
                                     {{gh-error-message errors=this.settings.errors property="metaDescription" data-test-error="metaDescription"}}
-                                    <p>Recommended: <b>156</b> characters. You’ve used <b>{{gh-count-down-characters this.settings.metaDescription 156}}</b></p>
+                                    <p>建议最多 <b>156</b> 个字符，已使用 <b>{{gh-count-down-characters this.settings.metaDescription 156}} 个字符</b></p>
                                 {{/gh-form-group}}
                             </div>
                             <div class="flex-basis-1-2-m flex-basis-1-3-l">
-                                <label>Search engine result preview</label>
+                                <label>搜索引擎预览</label>
                                 <div class="seo-preview">
                                     <div class="seo-preview-title">{{truncate (or this.settings.metaTitle this.settings.title) 70}}</div>
                                     <div class="seo-preview-link">{{truncate this.config.blogUrl 70}}</div>
@@ -256,11 +256,11 @@
             <div class="gh-setting flex-column">
                 <div class="flex flex-row justify-between w-100">
                     <div class="gh-setting-content">
-                        <div class="gh-setting-title">Twitter card</div>
-                        <div class="gh-setting-desc">Customise structured data of your site for Twitter</div>
+                        <div class="gh-setting-title">推特卡片</div>
+                        <div class="gh-setting-desc">网站的定制结构化数据</div>
                     </div>
                     <div class="gh-setting-action">
-                        <button type="button" class="gh-btn" {{action (toggle "twitterCardOpen" this)}} data-test-toggle-twitter><span>{{if twitterCardOpen "Close" "Expand"}}</span></button>
+                        <button type="button" class="gh-btn" {{action (toggle "twitterCardOpen" this)}} data-test-toggle-twitter><span>{{if twitterCardOpen "收起" "展开"}}</span></button>
                     </div>
                 </div>
                 {{#liquid-if twitterCardOpen}}
@@ -270,14 +270,14 @@
                                 {{#gh-form-group}}
                                     {{gh-image-uploader-with-preview
                                         image=this.settings.twitterImage
-                                        text="Add Twitter image"
+                                        text="添加推特图片"
                                         allowUnsplash=true
                                         update=(action (mut this.settings.twitterImage))
                                         remove=(action (mut this.settings.twitterImage ""))
                                     }}
                                 {{/gh-form-group}}
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="twitterTitle"}}
-                                    <label for="twitterTitle">Twitter title</label>
+                                    <label for="twitterTitle">推特标题</label>
                                     {{gh-text-input
                                         id="twitterTitle"
                                         type="text"
@@ -289,7 +289,7 @@
                                     {{gh-error-message errors=this.settings.errors property="twitterTitle" data-test-error="twitterTitle"}}
                                 {{/gh-form-group}}
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="twitterDescription"}}
-                                    <label for="twitterDescription">Twitter description</label>
+                                    <label for="twitterDescription">推特描述</label>
                                     {{gh-textarea
                                         id="twitterDescription"
                                         placeholder=(truncate this.settings.description 300)
@@ -301,7 +301,7 @@
                                 {{/gh-form-group}}
                             </div>
                             <div class="flex-basis-1-2-m flex-basis-1-3-l nt4-ns">
-                                <label>Preview</label>
+                                <label>预览</label>
                                 <div class="gh-twitter-preview">
                                     {{#if this.settings.twitterImage}}
                                     <div class="gh-twitter-preview-image" style={{background-image-style this.settings.twitterImage}}></div>
@@ -326,11 +326,11 @@
             <div class="gh-setting-last flex-column">
                 <div class="flex flex-row justify-between w-100">
                     <div class="gh-setting-content">
-                        <div class="gh-setting-title">Facebook card</div>
-                        <div class="gh-setting-desc">Customise structured data of your site</div>
+                        <div class="gh-setting-title">脸书卡片</div>
+                        <div class="gh-setting-desc">网站的定制结构化数据</div>
                     </div>
                     <div class="gh-setting-action">
-                        <button type="button" class="gh-btn" {{action (toggle "facebookCardOpen" this)}} data-test-toggle-facebook><span>{{if facebookCardOpen "Close" "Expand"}}</span></button>
+                        <button type="button" class="gh-btn" {{action (toggle "facebookCardOpen" this)}} data-test-toggle-facebook><span>{{if facebookCardOpen "收起" "展开"}}</span></button>
                     </div>
                 </div>
                 {{#liquid-if facebookCardOpen}}
@@ -340,14 +340,14 @@
                                 {{#gh-form-group}}
                                     {{gh-image-uploader-with-preview
                                         image=this.settings.ogImage
-                                        text="Add Facebook image"
+                                        text="添加脸书图片"
                                         allowUnsplash=true
                                         update=(action (mut this.settings.ogImage))
                                         remove=(action (mut this.settings.ogImage ""))
                                     }}
                                 {{/gh-form-group}}
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="ogTitle"}}
-                                    <label for="ogTitle">Facebook title</label>
+                                    <label for="ogTitle">脸书标题</label>
                                     {{gh-text-input
                                         id="ogTitle"
                                         type="text"
@@ -359,7 +359,7 @@
                                     {{gh-error-message errors=this.settings.errors property="ogTitle" data-test-error="ogTitle"}}
                                 {{/gh-form-group}}
                                 {{#gh-form-group errors=this.settings.errors hasValidated=this.settings.hasValidated property="ogDescription"}}
-                                    <label for="ogDescription">Facebook description</label>
+                                    <label for="ogDescription">脸书描述</label>
                                     {{gh-textarea
                                         id="ogDescription"
                                         placeholder=(truncate this.settings.description 300)
@@ -371,7 +371,7 @@
                                 {{/gh-form-group}}
                             </div>
                             <div class="flex-basis-1-2-m flex-basis-1-3-l nt4-ns">
-                                <label>Preview</label>
+                                <label>预览</label>
                                 <div class="gh-og-preview">
                                     {{#if this.settings.ogImage}}
                                     <div class="gh-og-preview-image" style={{background-image-style this.settings.ogImage}}></div>
@@ -394,12 +394,12 @@
             </div>
         </div>
 
-        <div class="gh-setting-header">Social accounts</div>
+        <div class="gh-setting-header">社交账号</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
             <div class="gh-setting-first gh-setting-last">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Social accounts</div>
-                    <div class="gh-setting-desc">Link your social accounts for full structured data and rich card support</div>
+                    <div class="gh-setting-title">社交账号</div>
+                    <div class="gh-setting-desc">为完整的结构化数据和丰富的卡片支持，连接你的社交账号</div>
                     {{#liquid-if socialOpen}}
                     <div class="gh-setting-content-extended">
                         {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="facebook"}}
@@ -413,7 +413,7 @@
                                 data-test-facebook-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="facebook" data-test-facebook-error=true}}
-                            <p>URL of your publication's Facebook Page</p>
+                            <p>你的专属脸书网页URL</p>
                         {{/gh-form-group}}
                         {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="twitter"}}
                             {{gh-text-input
@@ -426,29 +426,29 @@
                                 data-test-twitter-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="twitter" data-test-twitter-error=true}}
-                            <p>URL of your publication's Twitter profile</p>
+                            <p>你的专属推特简介URL</p>
                         {{/gh-form-group}}
                     </div>
                     {{/liquid-if}}
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn" {{action (toggle "socialOpen" this)}} data-test-toggle-social><span>{{if socialOpen "Close" "Expand"}}</span></button>
+                    <button type="button" class="gh-btn" {{action (toggle "socialOpen" this)}} data-test-toggle-social><span>{{if socialOpen "收起" "展开"}}</span></button>
                 </div>
             </div>
         </div>
 
-        <div class="gh-setting-header">Advanced settings</div>
+        <div class="gh-setting-header">高级设置</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
             <div class="gh-setting-first gh-setting-last">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Make this site private</div>
+                    <div class="gh-setting-title">设为私有</div>
                     <div class="gh-setting-desc">
-                        Enable protection with simple shared password. All search engine optimization and social features will be disabled.
+                        使用简单的共享密码保护，禁止使用所有搜索引擎优化和社交功能。
 
                         {{#if settings.isPrivate}}
                             <span class="avoid-break-out">
                                 <br><br>
-                                A private RSS feed is available at
+                                私有的 RSS feed 位于
                                 <a href="{{privateRSSUrl}}" target="_blank" rel="noopener">{{privateRSSUrl}}</a>
                             </span>
                         {{/if}}
@@ -465,7 +465,7 @@
                                     data-test-password-input=true
                                 }}
                                 {{gh-error-message errors=settings.errors property="password" data-test-password-error=true}}
-                                <p>Set the password for this site</p>
+                                <p>设置站点密码</p>
                             {{/gh-form-group}}
                         </div>
                     {{/if}}

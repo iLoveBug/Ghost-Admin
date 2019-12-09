@@ -3,14 +3,14 @@
         <h1>
             {{#if theme}}
                 {{#if hasWarningsOrErrors}}
-                    Upload successful with {{#if validationErrors}}errors{{else}}warnings{{/if}}
+                    上传成功，出现 {{#if validationErrors}}错误{{else}}警告{{/if}}
                 {{else}}
-                    Upload successful!
+                    上传成功！
                 {{/if}}
             {{else if (or validationErrors fatalValidationErrors)}}
-                Invalid theme
+                无效主题
             {{else}}
-                Upload a theme
+                上传一个主题
             {{/if}}
         </h1>
     </header>
@@ -21,17 +21,17 @@
             {{#if hasWarningsOrErrors}}
                 <p>
                     {{#if canActivateTheme}}
-                        The theme <strong>"{{themeName}}"</strong> was uploaded successfully but we detected some {{#if validationErrors}}errors{{else}}warnings{{/if}}. You are still able to activate and use the theme but it is recommended to fix these {{#if validationErrors}}errors{{else}}warnings{{/if}} before you do so.
+                        主题 <strong>"{{themeName}}"</strong> 上传成功，但是发现 {{#if validationErrors}}错误{{else}}警告{{/if}}。您可以激活并使用此主题，但是建议在使用前修复这些 {{#if validationErrors}}错误{{else}}警告{{/if}}。
                     {{else}}
-                        The theme <strong>"{{themeName}}"</strong> was uploaded successfully but we detected some
-                        {{#if validationErrors}}errors{{else}}warnings{{/if}}.
+                        主题 <strong>"{{themeName}}"</strong> 上传成功，但是发现
+                        {{#if validationErrors}}错误{{else}}警告{{/if}}。
                     {{/if}}
                 </p>
 
                 {{#if validationErrors}}
                     <div>
-                        <h2 class="mb0 mt4 f5 fw6">Errors</h2>
-                        <p class="mb2">Highly recommended to fix, functionality <strong>could</strong> be restricted</p>
+                        <h2 class="mb0 mt4 f5 fw6">错误</h2>
+                        <p class="mb2">强烈建议修复，部分功能 <strong>可能</strong> 被限制使用</p>
                     </div>
                     <ul class="pa0">
                     {{#each validationErrors as |error|}}
@@ -44,7 +44,7 @@
 
                 {{#if validationWarnings}}
                     <div>
-                        <h2 class="mb0 mt4 f5 fw6">Warnings</h2>
+                        <h2 class="mb0 mt4 f5 fw6">警告</h2>
                     </div>
                     <ul class="pa0">
                     {{#each validationWarnings as |error|}}
@@ -56,24 +56,24 @@
                 {{/if}}
             {{else}}
                 <p>
-                    "{{themeName}}" uploaded successfully.
-                    {{#if canActivateTheme}}Do you want to activate it now?{{/if}}
+                    "{{themeName}}" 上传成功。
+                    {{#if canActivateTheme}}是否现在激活此主题？{{/if}}
                 </p>
             {{/if}}
         {{else if displayOverwriteWarning}}
             <p>
-                The theme folder <strong>"{{fileThemeName}}"</strong> already exists. Do you want to overwrite it?
+                主题目录 <strong>"{{fileThemeName}}"</strong> 已存在，是否要覆盖此目录？
             </p>
         {{else if (or validationErrors fatalValidationErrors)}}
 
             <p>
-                This theme is invalid and cannot be activated. Fix the following errors and re-upload the theme.
+                主题无效不能被激活，请修复如下错误并重新上传。
             </p>
 
             {{#if fatalValidationErrors}}
                 <div>
-                    <h2 class="mb0 mt4 f5 fw6">Fatal Errors</h2>
-                    <p class="mb2">Must-fix to activate theme</p>
+                    <h2 class="mb0 mt4 f5 fw6">严重错误</h2>
+                    <p class="mb2">必须修复才能激活主题</p>
                 </div>
 
                 <ul class="pa0">
@@ -87,8 +87,8 @@
 
             {{#if validationErrors}}
                 <div>
-                    <h2 class="mb0 mt4 f5 fw6">Errors</h2>
-                    <p class="mb2">Highly recommended to fix, functionality <strong>could</strong> be restricted</p>
+                    <h2 class="mb0 mt4 f5 fw6">错误</h2>
+                    <p class="mb2">强烈建议修复，部分功能 <strong>有可能</strong> 被限制访问</p>
                 </div>
                 <ul class="pa0">
                 {{#each validationErrors as |error|}}
@@ -103,7 +103,7 @@
                 url=uploadUrl
                 paramName="file"
                 accept=accept
-                labelText="Click to select or drag-and-drop your theme zip file here."
+                labelText="点击选择或者拖拽你的主题文件zip格式压缩包到这里"
                 validate=(action "validateTheme")
                 uploadStarted=(action "uploadStarted")
                 uploadFinished=(action "uploadFinished")
@@ -117,22 +117,22 @@
 <div class="modal-footer">
     <div class="flex items-center justify-between {{if (or displayOverwriteWarning canActivateTheme validationErrors fatalValidationErrors) "flex-auto"}}">
         <button {{action "closeModal"}} disabled={{closeDisabled}} class="gh-btn" data-test-close-button>
-            <span>{{#if theme}}Close{{else}}Cancel{{/if}}</span>
+            <span>{{#if theme}}关闭{{else}}取消{{/if}}</span>
         </button>
         <div class="flex items-center">
             {{#if displayOverwriteWarning}}
                 <button {{action "confirmOverwrite"}} class="gh-btn gh-btn-red" data-test-overwrite-button>
-                    <span>Overwrite</span>
+                    <span>覆盖</span>
                 </button>
             {{/if}}
             {{#if canActivateTheme}}
                 <button {{action "activate"}} class="gh-btn" data-test-activate-now-button>
-                    <span>Activate{{#if validationErrors}} with errors{{/if}}</span>
+                    <span>{{#if validationErrors}}允许错误并{{/if}}激活</span>
                 </button>
             {{/if}}
             {{#if (or validationErrors fatalValidationErrors)}}
                 <button {{action "reset"}} class="gh-btn gh-btn-blue ml2" data-test-try-again-button>
-                    <span>Retry</span>
+                    <span>再试一次</span>
                 </button>
             {{/if}}
         </div>

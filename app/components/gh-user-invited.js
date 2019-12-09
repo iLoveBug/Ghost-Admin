@@ -39,7 +39,7 @@ export default Component.extend({
 
             this.set('isSending', true);
             invite.resend().then((result) => {
-                let notificationText = `Invitation resent! (${invite.get('email')})`;
+                let notificationText = `邀请已发送至 (${invite.get('email')})！`;
 
                 // the server deletes the old record and creates a new one when
                 // resending so we need to update the store accordingly
@@ -49,7 +49,7 @@ export default Component.extend({
                 // If sending the invitation email fails, the API will still return a status of 201
                 // but the invite's status in the response object will be 'invited-pending'.
                 if (result.invites[0].status === 'invited-pending') {
-                    notifications.showAlert('Invitation email was not sent.  Please try resending.', {type: 'error', key: 'invite.resend.not-sent'});
+                    notifications.showAlert('邀请邮件未发送，请尝试重新发送。', {type: 'error', key: 'invite.resend.not-sent'});
                 } else {
                     notifications.showNotification(notificationText, {key: 'invite.resend.success'});
                 }
@@ -68,7 +68,7 @@ export default Component.extend({
             // reload the invite to get the most up-to-date information
             invite.reload().then(() => {
                 invite.destroyRecord().then(() => {
-                    let notificationText = `Invitation revoked. (${email})`;
+                    let notificationText = `对(${email})的邀请已收回`;
                     notifications.showNotification(notificationText, {key: 'invite.revoke.success'});
                 }).catch((error) => {
                     notifications.showAPIError(error, {key: 'invite.revoke'});
@@ -81,7 +81,7 @@ export default Component.extend({
                         action();
                     }
 
-                    notifications.showAlert('This invite has been revoked or a user has already accepted the invitation.', {type: 'error', delayed: true, key: 'invite.revoke.already-accepted'});
+                    notifications.showAlert('此邀请已被收回或该用户已接受邀请。', {type: 'error', delayed: true, key: 'invite.revoke.already-accepted'});
                 } else {
                     throw error;
                 }

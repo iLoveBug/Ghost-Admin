@@ -1,8 +1,8 @@
-<h4 class="midlightgrey f-small fw5 ttu">Basic settings</h4>
+<h4 class="midlightgrey f-small fw5 ttu">基本设置</h4>
 <div class="pa5 pt4 br4 shadow-1 bg-grouped-table mt2 flex flex-column flex-row-ns items-start justify-between gh-tag-basic-settings-form">
     <div class="order-1 flex flex-column items-start mr5 w-100 w-50-m w-two-thirds-l">
         {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="name"}}
-        <label for="tag-name">Name</label>
+        <label for="tag-name">名称</label>
         {{gh-text-input
                     id="tag-name"
                     name="name"
@@ -10,9 +10,8 @@
                     tabindex="1"
                     input=(action (mut scratchName) value="target.value")
                     focus-out=(action 'setProperty' 'name' scratchName)}}
-        <p class="description">Start with # to create internal tags. <a
-                href="https://ghost.org/docs/concepts/tags/#internal-tag" target="_blank" rel="noreferrer">Learn
-                more</a></p>
+        <p class="description">以 # 开头创建内部标签 <a
+                href="https://ghost.org/docs/concepts/tags/#internal-tag" target="_blank" rel="noreferrer">了解更多</a></p>
         {{gh-error-message errors=tag.errors property="name"}}
         {{/gh-form-group}}
 
@@ -30,7 +29,7 @@
         {{/gh-form-group}}
 
         {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="description"}}
-        <label for="tag-description">Description</label>
+        <label for="tag-description">描述</label>
         {{gh-textarea
                     id="tag-description"
                     name="description"
@@ -41,14 +40,14 @@
                     focus-out=(action 'setProperty' 'description' scratchDescription)
                 }}
         {{gh-error-message errors=tag.errors property="description"}}
-        <p>Maximum: <b>500</b> characters. You’ve used {{gh-count-down-characters scratchDescription 500}}</p>
+        <p>最多 <b>500</b> 个字符。已使用 {{gh-count-down-characters scratchDescription 500}} 个字符</p>
         {{/gh-form-group}}
     </div>
     <div class="order-0 mb6 mb0-ns order-2-ns w-100 w-50-m w-third-l">
-        <label for="tag-image">Tag image</label>
+        <label for="tag-image">标签图片</label>
         {{gh-image-uploader-with-preview
                                 image=tag.featureImage
-                                text="Upload tag image"
+                                text="上传标签图片"
                                 class="gh-tag-image-uploader"
                                 allowUnsplash=true
                                 update=(action "setCoverImage")
@@ -56,11 +55,11 @@
     </div>
 </div>
 
-<h4 class="midlightgrey f-small fw5 ttu mt15">Meta data</h4>
+<h4 class="midlightgrey f-small fw5 ttu mt15">元数据</h4>
 <div class="pa5 pt4 br4 shadow-1 bg-grouped-table mt2 flex flex-column flex-row-ns items-start justify-between">
     <div class="flex flex-column items-start mr5 w-100 w-50-m w-two-thirds-l">
         {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="metaTitle"}}
-        <label for="meta-title">Meta Title</label>
+        <label for="meta-title">元数据标题</label>
         {{gh-text-input
                     id="meta-title"
                     name="metaTitle"
@@ -70,11 +69,11 @@
                     input=(action (mut scratchMetaTitle) value="target.value")
                     focus-out=(action "setProperty" "metaTitle" scratchMetaTitle)}}
         {{gh-error-message errors=tag.errors property="metaTitle"}}
-        <p>Recommended: <b>70</b> characters. You’ve used {{gh-count-down-characters scratchMetaTitle 70}}</p>
+        <p>建议最多 <b>70</b> 个字符。已使用 {{gh-count-down-characters scratchMetaTitle 70}} 个字符</p>
         {{/gh-form-group}}
 
         {{#gh-form-group errors=tag.errors hasValidated=tag.hasValidated property="metaDescription"}}
-        <label for="meta-description">Meta Description</label>
+        <label for="meta-description">元数据描述</label>
         {{gh-textarea
                     id="meta-description"
                     name="metaDescription"
@@ -86,12 +85,12 @@
                     focus-out=(action "setProperty" "metaDescription" scratchMetaDescription)
                 }}
         {{gh-error-message errors=tag.errors property="metaDescription"}}
-        <p>Recommended: <b>156</b> characters. You’ve used {{gh-count-down-characters scratchMetaDescription 156}}</p>
+        <p>建议最多 <b>156</b> 个字符。已使用 {{gh-count-down-characters scratchMetaDescription 156}} 个字符</p>
         {{/gh-form-group}}
     </div>
     <div class="w-100 w-50-m w-third-l">
         <div class="form-group">
-            <label>Search Engine Result Preview</label>
+            <label>搜索引擎结果预览</label>
             <div class="seo-preview">
                 <div class="seo-preview-title">{{seoTitle}}</div>
                 <div class="seo-preview-link">{{seoURL}}</div>

@@ -1,22 +1,22 @@
 <section class="gh-canvas">
     <GhCanvasHeader class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            Labs
+            实验室
         </h2>
     </GhCanvasHeader>
 
     <section class="view-container settings-debug">
-        <p class="gh-box gh-box-info">{{svg-jar "idea"}}This is a testing ground for new or experimental features. They may change, break or inexplicably disappear at any time.</p>
+        <p class="gh-box gh-box-info">{{svg-jar "idea"}}测试与试验性功能的测试场，未来可能会改变、中断甚至被移除。</p>
 
         {{#if session.user.isOwner}}
-        <div class="gh-setting-header">Members (BETA) </div>
+        <div class="gh-setting-header">会员 (BETA) </div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table mt2">
             <div class="gh-setting-first gh-setting-last">
                 <div class="gh-members-setting-content">
                     <div class="flex">
                         <div class="flex flex-column flex-grow-1">
-                            <div class="gh-setting-title pl5 pt5">Enable members</div>
-                            <div class="gh-setting-desc pl5 pb5">Create registered members and take subscription payments — <a href="https://ghost.org/docs/members/" target="_blank" rel="noopener">Find out more</a></div>
+                            <div class="gh-setting-title pl5 pt5">使用会员</div>
+                            <div class="gh-setting-desc pl5 pb5">创建注册会员与付费订阅 — <a href="https://ghost.org/docs/members/" target="_blank" rel="noopener">如何使用</a></div>
                         </div>
                         <div class="gh-setting-action">
                             <div class="for-switch pa5">{{gh-feature-flag "members"}}</div>
@@ -29,10 +29,10 @@
                         setMembersSubscriptionSettings=(action "setMembersSubscriptionSettings")
                     }}
                     <div class="mt5 pl5 pr5 pb5">
-                        {{gh-task-button "Save members settings"
+                        {{gh-task-button "保存会员设置"
                             task=saveSettings
-                            successText="Saved"
-                            runningText="Saving"
+                            successText="已保存"
+                            runningText="正在保存"
                             class="gh-btn gh-btn-blue gh-btn-icon"
                         }}
                     </div>
@@ -41,12 +41,12 @@
             </div>
         </div>
         {{/if}}
-        <div class="gh-setting-header">Migration options</div>
+        <div class="gh-setting-header">迁移选项</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5 mt2">
             <div class="gh-setting-first">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Import content</div>
-                    <div class="gh-setting-desc">Import posts from another Ghost installation</div>
+                    <div class="gh-setting-title">导入内容</div>
+                    <div class="gh-setting-desc">从其他安装实例中导入内容</div>
                 </div>
                 <div class="gh-setting-action">
                     <form id="settings-import" enctype="multipart/form-data">
@@ -65,9 +65,9 @@
                 <div class="gh-import-errors {{if importSuccessful "gh-import-errors-warning"}}" data-test-import-errors>
                     <div class="gh-import-errors-title">
                         {{#if importSuccessful}}
-                            Import successful with warnings
+                            导入成功，有警告
                         {{else}}
-                            Import failed
+                            导入失败
                         {{/if}}
                     </div>
 
@@ -89,30 +89,30 @@
 
             <div class="gh-setting">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Export your content</div>
-                    <div class="gh-setting-desc">Download all of your posts and settings in a single, glorious JSON file</div>
+                    <div class="gh-setting-title">导出内容</div>
+                    <div class="gh-setting-desc">导出所有文章与设置导单一大JSON文件</div>
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn gh-btn-hover-blue" {{action "downloadFile" "db"}}><span>Export</span></button>
+                    <button type="button" class="gh-btn gh-btn-hover-blue" {{action "downloadFile" "db"}}><span>导出</span></button>
                 </div>
             </div>
             <div class="gh-setting-last">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Delete all content</div>
-                    <div class="gh-setting-desc">Permanently delete all posts and tags from the database, a hard reset</div>
+                    <div class="gh-setting-title">删除所有内容</div>
+                    <div class="gh-setting-desc">从数据库中删除所有文章和标签，硬重置</div>
                 </div>
                 <div class="gh-setting-action">
-                    <button type="button" class="gh-btn gh-btn-hover-red js-delete" {{action "toggleDeleteAllModal"}}><span>Delete</span></button>
+                    <button type="button" class="gh-btn gh-btn-hover-red js-delete" {{action "toggleDeleteAllModal"}}><span>删除</span></button>
                 </div>
             </div>
         </div>
 
-        <div class="gh-setting-header">Beta features</div>
+        <div class="gh-setting-header">Beta功能</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5 mt2">
             <div class="gh-setting-first">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Night shift</div>
-                    <div class="gh-setting-desc">Swap Ghost admin's colours to a dark background which is easy on the eyes</div>
+                    <div class="gh-setting-title">深色模式</div>
+                    <div class="gh-setting-desc">切换配色方案到深色背景模式</div>
                 </div>
                 <div class="gh-setting-action">
                     <div class="for-switch">{{gh-feature-flag "nightShift"}}</div>
@@ -128,8 +128,8 @@
                     as |uploader|
                 }}
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Redirects</div>
-                    <div class="gh-setting-desc">Configure redirects for old or moved content, more info in <a href="https://ghost.org/tutorials/implementing-redirects/">the docs</a></div>
+                    <div class="gh-setting-title">重定向</div>
+                    <div class="gh-setting-desc">重定向旧的或被删除的内容，更多信息请查看<a href="https://ghost.org/tutorials/implementing-redirects/">文档</a></div>
                     {{#each uploader.errors as |error|}}
                         <div class="gh-setting-error" data-test-error="redirects">{{or error.context error.message}}</div>
                     {{/each}}
@@ -146,15 +146,15 @@
                         >
                             <span>
                                 {{#if redirectSuccess}}
-                                    {{svg-jar "check-circle"}} Uploaded
+                                    {{svg-jar "check-circle"}} 上传
                                 {{else if redirectFailure}}
-                                    {{svg-jar "retry"}} Upload Failed
+                                    {{svg-jar "retry"}} 上传失败
                                 {{else}}
-                                    Upload redirects JSON
+                                    上传重定向JSON项
                                 {{/if}}
                             </span>
                         </button>
-                        <span><a href="#" {{action "downloadFile" "redirects/json"}} data-test-link="download-redirects">Download current redirects</a></span>
+                        <span><a href="#" {{action "downloadFile" "redirects/json"}} data-test-link="download-redirects">下载当前重定向项</a></span>
                     {{/if}}
 
                     <div style="display:none">
@@ -173,8 +173,8 @@
                     as |uploader|
                 }}
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Routes</div>
-                    <div class="gh-setting-desc">Configure dynamic routing by modifying the routes.yaml file</div>
+                    <div class="gh-setting-title">路由</div>
+                    <div class="gh-setting-desc">修改routes.yaml文件配置动态路由</div>
                     {{#each uploader.errors as |error|}}
                         <div class="gh-setting-error" data-test-error="routes">{{or error.context error.message}}</div>
                     {{/each}}
@@ -191,15 +191,15 @@
                         >
                             <span>
                                 {{#if routesSuccess}}
-                                    {{svg-jar "check-circle"}} Uploaded
+                                    {{svg-jar "check-circle"}} 上传
                                 {{else if routesFailure}}
-                                    {{svg-jar "retry"}} Upload Failed
+                                    {{svg-jar "retry"}} 上传失败
                                 {{else}}
-                                    Upload routes YAML
+                                    上传路由YAML文件
                                 {{/if}}
                             </span>
                         </button>
-                        <span><a href="#" {{action "downloadFile" "settings/routes/yaml"}} data-test-link="download-routes">Download current routes.yaml</a></span>
+                        <span><a href="#" {{action "downloadFile" "settings/routes/yaml"}} data-test-link="download-routes">下载当前routes.yaml文件</a></span>
                     {{/if}}
 
                     <div style="display:none">
@@ -210,15 +210,15 @@
             </div>
         </div>
 
-        <div class="gh-setting-header">Testing tools</div>
+        <div class="gh-setting-header">测试工具</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5 mt2">
             <div class="gh-setting-first gh-setting-last">
                 <div class="gh-setting-content">
-                    <div class="gh-setting-title">Test email configuration</div>
-                    <div class="gh-setting-desc">Send yourself a test email to make sure everything is working</div>
+                    <div class="gh-setting-title">测试Email配置</div>
+                    <div class="gh-setting-desc">给自己发送一封Email测试是否配置正确</div>
                 </div>
                 <div class="gh-setting-action">
-                    {{gh-task-button "Send" successText="Sent" task=sendTestEmail class="gh-btn gh-btn-hover-blue gh-btn-icon"}}
+                    {{gh-task-button "发送" successText="已发送" task=sendTestEmail class="gh-btn gh-btn-hover-blue gh-btn-icon"}}
                 </div>
             </div>
         </div>

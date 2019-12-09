@@ -9,10 +9,10 @@ export default BaseValidator.create({
         let email = model.get('email');
 
         if (isBlank(email)) {
-            model.get('errors').add('email', 'Please enter an email.');
+            model.get('errors').add('email', '请输入邮件地址');
             this.invalidate();
         } else if (!validator.isEmail(email)) {
-            model.get('errors').add('email', 'Invalid Email.');
+            model.get('errors').add('email', '无效邮件地址');
             this.invalidate();
         }
     },
@@ -21,7 +21,7 @@ export default BaseValidator.create({
         let role = model.get('role');
 
         if (isBlank(role)) {
-            model.get('errors').add('role', 'Please select a role.');
+            model.get('errors').add('role', '请选择一个角色');
             model.get('hasValidated').pushObject('role');
             this.invalidate();
         }

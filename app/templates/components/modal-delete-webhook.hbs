@@ -1,15 +1,15 @@
 <header class="modal-header">
-    <h1>Are you sure?</h1>
+    <h1>确定吗？</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
 <div class="modal-body">
     <p>
-        Deleting this webhook may prevent the integration from functioning.
+        删除此webhook可能导致集成项不工作。
     </p>
 </div>
 
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn"><span>Cancel</span></button>
-    {{gh-task-button "Delete Webhook" successText="Deleted" task=deleteWebhook class="gh-btn gh-btn-red gh-btn-icon"}}
+    <button {{action "closeModal"}} class="gh-btn"><span>取消</span></button>
+    {{gh-task-button "删除Webhook" successText="已删除" task=deleteWebhook class="gh-btn gh-btn-red gh-btn-icon"}}
 </div>

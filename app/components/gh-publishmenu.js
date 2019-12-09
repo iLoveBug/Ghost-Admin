@@ -36,11 +36,11 @@ export default Component.extend({
         let state = this.postState;
 
         if (state === 'published') {
-            return 'Update';
+            return '更新';
         } else if (state === 'scheduled') {
-            return 'Scheduled';
+            return '已计划';
         } else {
-            return 'Publish';
+            return '发布';
         }
     }),
 
@@ -50,18 +50,18 @@ export default Component.extend({
         let runningText;
 
         if (postState === 'draft') {
-            runningText = saveType === 'publish' ? 'Publishing' : 'Scheduling';
+            runningText = saveType === 'publish' ? '发布中' : '计划发布中';
         }
 
         if (postState === 'published') {
-            runningText = saveType === 'publish' ? 'Updating' : 'Unpublishing';
+            runningText = saveType === 'publish' ? '更新中' : '取消发布中';
         }
 
         if (postState === 'scheduled') {
-            runningText = saveType === 'schedule' ? 'Rescheduling' : 'Unscheduling';
+            runningText = saveType === 'schedule' ? '重新计划中' : '取消计划中';
         }
 
-        return runningText || 'Publishing';
+        return runningText || '发布中';
     }),
 
     buttonText: computed('postState', 'saveType', function () {
@@ -70,18 +70,18 @@ export default Component.extend({
         let buttonText;
 
         if (postState === 'draft') {
-            buttonText = saveType === 'publish' ? 'Publish' : 'Schedule';
+            buttonText = saveType === 'publish' ? '发布' : '计划';
         }
 
         if (postState === 'published') {
-            buttonText = saveType === 'publish' ? 'Update' : 'Unpublish';
+            buttonText = saveType === 'publish' ? '更新' : '取消发布';
         }
 
         if (postState === 'scheduled') {
-            buttonText = saveType === 'schedule' ? 'Reschedule' : 'Unschedule';
+            buttonText = saveType === 'schedule' ? '重新计划' : '取消计划';
         }
 
-        return buttonText || 'Publish';
+        return buttonText || '发布';
     }),
 
     successText: computed('_previousStatus', 'postState', function () {
@@ -90,15 +90,15 @@ export default Component.extend({
         let buttonText;
 
         if (previousStatus === 'draft') {
-            buttonText = postState === 'published' ? 'Published' : 'Scheduled';
+            buttonText = postState === 'published' ? '已发布' : '已计划';
         }
 
         if (previousStatus === 'published') {
-            buttonText = postState === 'draft' ? 'Unpublished' : 'Updated';
+            buttonText = postState === 'draft' ? '已发布' : '已更新';
         }
 
         if (previousStatus === 'scheduled') {
-            buttonText = postState === 'draft' ? 'Unscheduled' : 'Rescheduled';
+            buttonText = postState === 'draft' ? '已取消计划' : '已重新计划';
         }
 
         return buttonText;

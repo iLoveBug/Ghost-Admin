@@ -73,7 +73,8 @@ export default Model.extend(Comparable, ValidationEngine, {
     clock: service(),
     settings: service(),
 
-    displayName: 'post',
+    displayName: '文章',
+    routeName: 'post',
     validationType: 'post',
 
     createdAtUTC: attr('moment-utc'),

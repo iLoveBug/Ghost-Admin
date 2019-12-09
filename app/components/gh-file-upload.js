@@ -4,7 +4,7 @@ export default Component.extend({
     _file: null,
 
     acceptEncoding: null,
-    uploadButtonText: 'Text',
+    uploadButtonText: '文本',
     uploadButtonDisabled: true,
 
     shouldResetForm: true,

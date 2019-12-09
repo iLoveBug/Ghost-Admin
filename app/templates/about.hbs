@@ -5,42 +5,42 @@
     <section class="view-container">
         <section class="gh-env-details">
             <ul class="gh-env-list">
-                <li class="gh-env-list-version"><strong>Version</strong> {{config.version}}</li>
-                <li><strong>Environment</strong> {{config.environment}}</li>
-                <li class="gh-env-list-database-type"><strong>Database</strong> {{config.database}}</li>
-                <li><strong>Mail</strong> {{#if config.mail}}{{config.mail}}{{else}}Native{{/if}}</li>
+                <li class="gh-env-list-version"><strong>版本</strong> {{config.version}}</li>
+                <li><strong>运行环境</strong> {{config.environment}}</li>
+                <li class="gh-env-list-database-type"><strong>数据库</strong> {{config.database}}</li>
+                <li><strong>电子邮件</strong> {{#if config.mail}}{{config.mail}}{{else}}本地{{/if}}</li>
             </ul>
             <div class="gh-env-help">
-                <a class="gh-btn" href="https://ghost.org/docs/" target="_blank"><span>User Documentation</span></a>
-                <a class="gh-btn" href="https://forum.ghost.org/" target="_blank"><span>Get Help With Ghost</span></a>
+                <a class="gh-btn" href="https://ghost.org/docs/" target="_blank"><span>用户文档</span></a>
+                <a class="gh-btn" href="https://forum.ghost.org/" target="_blank"><span>获得帮助</span></a>
             </div>
         </section>
 
         {{#if upgradeStatus.message}}
             <section class="gh-upgrade-notification">
                 <p>
-                    <strong>Update available!</strong> {{upgradeStatus.message}}
+                    <strong>有新的版本更新！</strong> {{upgradeStatus.message}}
                 </p>
             </section>
         {{/if}}
 
         <section class="gh-credits">
-            <h2>The People Who Made it Possible</h2>
+            <h2>幕后英雄</h2>
 
             <section class="gh-contributors">
                 {{partial "contributors"}}
             </section>
 
-            <p>Ghost is built by an incredible group of contributors from all over the world. Here are just a few of the people who helped create the version you’re using right now.</p>
+            <p>Ghost由全球不可思议的贡献者协同构建，这里只是其中一部分，他们帮助构建了你正在使用的当前版本。</p>
 
-            <a class="gh-btn gh-btn-blue" href="https://ghost.org/docs/concepts/contributing/" target="_blank"><span>Find out how you can get involved</span></a>
+            <a class="gh-btn gh-btn-blue" href="https://ghost.org/docs/concepts/contributing/" target="_blank"><span>看看如何参与</span></a>
 
         </section>
 
         <footer class="gh-copyright-info">
-            Copyright &copy; 2013 &ndash; {{copyrightYear}} Ghost Foundation, released under the <a href="https://github.com/TryGhost/Ghost/blob/master/LICENSE" target="_blank">MIT license</a>.
+            版权所有 &copy; 2013 &ndash; {{copyrightYear}} Ghost Foundation, 版权 <a href="https://github.com/TryGhost/Ghost/blob/master/LICENSE" target="_blank">MIT license</a>。
             <br>
-            <a href="https://ghost.org/" target="_blank">Ghost</a> is a registered trademark of <a href="https://ghost.org/trademark/" target="_blank">Ghost Foundation Ltd</a>.
+            <a href="https://ghost.org/" target="_blank">Ghost</a> 是 <a href="https://ghost.org/trademark/" target="_blank">Ghost Foundation Ltd</a>的注册商标。
         </footer>
     </section>
 </section>

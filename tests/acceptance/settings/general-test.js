@@ -76,7 +76,7 @@ describe('Acceptance: Settings - General', function () {
             expect(
                 find('[data-test-save-button]').textContent.trim(),
                 'save button text'
-            ).to.equal('Save settings');
+            ).to.equal('保存设置');
 
             await click('[data-test-toggle-pub-info]');
             await fillIn('[data-test-title-input]', 'New Blog Title');

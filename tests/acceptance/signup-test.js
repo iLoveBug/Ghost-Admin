@@ -82,7 +82,7 @@ describe('Acceptance: Signup', function () {
         expect(
             find('[data-test-input="email"]').closest('.form-group').querySelector('.response').textContent,
             'email inline-error text'
-        ).to.have.string('Please enter an email');
+        ).to.have.string('请输入邮件地址');
 
         // entering text in email field clears error
         await fillIn('[data-test-input="email"]', 'kevin+test2@ghost.org');

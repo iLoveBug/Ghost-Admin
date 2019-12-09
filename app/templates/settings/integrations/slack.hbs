@@ -1,7 +1,7 @@
 <section class="gh-canvas">
     <GhCanvasHeader class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            {{#link-to "settings.integrations" data-test-link="integrations-back"}}Integrations{{/link-to}}
+            {{#link-to "settings.integrations" data-test-link="integrations-back"}}集成{{/link-to}}
             <span>{{svg-jar "arrow-right"}}</span>
             Slack
         </h2>
@@ -26,18 +26,18 @@
             </div>
             <div class="app-cell">
                 <h3>Slack</h3>
-                <p>A messaging app for teams</p>
+                <p>面向团队的消息应用</p>
             </div>
         </section>
 
         <form class="app-config-form" id="slack-settings" novalidate="novalidate" {{action "save" on="submit"}}>
-            <div class="gh-setting-header gh-first-header">Slack configuration</div>
+            <div class="gh-setting-header gh-first-header">Slack配置</div>
 
                 <div class="flex flex-column br4 shadow-1 bg-grouped-table pa8 mt2">
                 <div class="gh-setting-first">
                     <div class="gh-setting-content gh-setting-content--no-action">
                         <div class="gh-setting-title">Webhook URL</div>
-                        <div class="gh-setting-desc">Automatically send newly published posts to a channel in Slack or any Slack-compatible service like Discord or Mattermost.</div>
+                        <div class="gh-setting-desc">自动发送新发布的文章到Slack channel或者任何兼容Slack的服务，例如Discord或Mattermost。</div>
                         <div class="gh-setting-content-extended">
                             {{#gh-form-group errors=slackSettings.errors hasValidated=slackSettings.hasValidated property="url"}}
                                 {{gh-text-input
@@ -52,7 +52,7 @@
                                     data-test-slack-url-input=true
                                 }}
                                 {{#unless slackSettings.errors.url}}
-                                    <p>Set up a new incoming webhook <a href="https://my.slack.com/apps/new/A0F7XDUAZ-incoming-webhooks" target="_blank">here</a>, and grab the URL.</p>
+                                    <p><a href="https://my.slack.com/apps/new/A0F7XDUAZ-incoming-webhooks" target="_blank">在此</a>建立一个呼入的webhook，并获取URL。</p>
                                 {{else}}
                                     {{gh-error-message errors=slackSettings.errors property="url" data-test-error="slack-url"}}
                                 {{/unless}}
@@ -62,8 +62,8 @@
                 </div>
                 <div class="gh-setting">
                     <div class="gh-setting-content gh-setting-content--no-action">
-                        <div class="gh-setting-title">Username</div>
-                        <div class="gh-setting-desc">The username to display messages from</div>
+                        <div class="gh-setting-title">用户名</div>
+                        <div class="gh-setting-desc">显示消息来自于的用户名</div>
                         <div class="gh-setting-content-extended">
                             {{#gh-form-group errors=slackSettings.errors hasValidated=slackSettings.hasValidated property="username"}}
                                 {{gh-text-input
@@ -82,7 +82,7 @@
                                 {{/if}}
                             {{/gh-form-group}}
                         </div>
-                        {{gh-task-button "Send test notification" task=sendTestNotification successText="Sent" class="gh-btn gh-btn-green gh-btn-icon" disabled=testNotificationDisabled data-test-send-notification-button=true}}
+                        {{gh-task-button "发送测试通知" task=sendTestNotification successText="Sent" class="gh-btn gh-btn-green gh-btn-icon" disabled=testNotificationDisabled data-test-send-notification-button=true}}
                     </div>
                 </div>
             </div>

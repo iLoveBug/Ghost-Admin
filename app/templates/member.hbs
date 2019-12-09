@@ -2,7 +2,7 @@
     <form class="mb10 member-basic-info-form">
         <GhCanvasHeader class="gh-canvas-header">
             <h2 class="gh-canvas-title" data-test-screen-title>
-                {{#link-to "members" data-test-link="members-back"}}Members{{/link-to}}
+                {{#link-to "members" data-test-link="members-back"}}会员{{/link-to}}
                 <span>{{svg-jar "arrow-right"}}</span>
                 {{#if member.name}}
                     {{member.name}}
@@ -24,7 +24,7 @@
                     {{#if member.name}}
                         <span class="darkgrey fw5">{{member.email}}</span> –
                     {{/if}}
-                    Created on {{this.subscribedAt}}
+                    创建于 {{this.subscribedAt}}
                 </p>
             </div>
         </div>
@@ -40,7 +40,7 @@
         {{action (toggle "showDeleteMemberModal" this)}}
         data-test-button="delete-member"
     >
-        <span>Delete member</span>
+        <span>删除会员</span>
     </button>
 </section>
 

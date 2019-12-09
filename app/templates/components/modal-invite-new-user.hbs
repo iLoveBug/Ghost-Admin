@@ -1,20 +1,20 @@
 <header class="modal-header">
-    <h1>Invite a New User</h1>
+    <h1>邀请新用户</h1>
 </header>
 {{!-- disable mouseDown so it doesn't trigger focus-out validations --}}
 <a class="close" href="" title="Close" {{action "closeModal"}} {{action (optional noop) on="mouseDown"}}>
-    {{svg-jar "close"}}<span class="hidden">Close</span>
+    {{svg-jar "close"}}<span class="hidden">关闭</span>
 </a>
 
 <div class="modal-body">
     <fieldset>
         {{#gh-form-group errors=errors hasValidated=hasValidated property="email"}}
-            <label for="new-user-email">Email Address</label>
+            <label for="new-user-email">电子邮件地址</label>
             {{gh-text-input
                 class="email"
                 id="new-user-email"
                 type="email"
-                placeholder="Email Address"
+                placeholder="电子邮件"
                 name="email"
                 autofocus="autofocus"
                 autocapitalize="off"
@@ -31,7 +31,7 @@
 
 
         {{#gh-form-group class="for-select" errors=errors hasValidated=hasValidated property="role"}}
-            <label for="new-user-role">Role</label>
+            <label for="new-user-role">角色</label>
             <span class="gh-select">
                 {{one-way-select
                     id="new-user-role"
@@ -50,8 +50,8 @@
 </div>
 
 <div class="modal-footer">
-    {{gh-task-button "Send invitation now"
-        successText="Sent"
+    {{gh-task-button "即刻发送邀请"
+        successText="已发送"
         task=sendInvitation
         class="gh-btn gh-btn-green gh-btn-icon"
         disabled=fetchRoles.isRunning

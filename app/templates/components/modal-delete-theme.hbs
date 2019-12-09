@@ -1,13 +1,13 @@
 <header class="modal-header" data-test-delete-theme-modal>
-    <h1>Are you sure you want to delete this</h1>
+    <h1>确定要删除吗？</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
 <div class="modal-body">
-    <p>You're about to delete "<strong>{{theme.label}}</strong>". This is permanent! We warned you, k? Maybe <a href="#" {{action download}}>Download your theme before continuing</a></p>
+    <p>即将删除主题 "<strong>{{theme.label}}</strong>"此操作不可恢复。在此警告，也许应该在继续操作之前先 <a href="#" {{action download}}>下载主题</a></p>
 </div>
 
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn" data-test-cancel-button><span>Cancel</span></button>
-    {{gh-task-button "Delete" successText="Deleted" task=deleteTheme class="gh-btn gh-btn-red gh-btn-icon" data-test-delete-button=true}}
+    <button {{action "closeModal"}} class="gh-btn" data-test-cancel-button><span>取消</span></button>
+    {{gh-task-button "删除" successText="已删除" task=deleteTheme class="gh-btn gh-btn-red gh-btn-icon" data-test-delete-button=true}}
 </div>

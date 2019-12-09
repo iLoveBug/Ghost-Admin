@@ -4,17 +4,17 @@
             {{#unless this.canActivate}}
                 {{this.title}}
             {{else}}
-                {{this.title}} with {{#if this.errors}}errors{{else}}warnings{{/if}}
+                {{this.title}} 出现 {{#if this.errors}}错误{{else}}警告{{/if}}
             {{/unless}}
         </h1>
     </header>
-    <a class="close" href="#" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+    <a class="close" href="#" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
     <div class="modal-body">
         {{#if this.fatalErrors}}
             <div>
-                <h2 class="mb0 mt4 f5 fw6 red">Fatal Errors</h2>
-                <p class="mb2 red">Must-fix to activate theme</p>
+                <h2 class="mb0 mt4 f5 fw6 red">严重错误</h2>
+                <p class="mb2 red">必须修复才能激活此主题</p>
             </div>
             <ul class="pa0" data-test-theme-fatal-errors>
             {{#each this.fatalErrors as |error|}}
@@ -27,8 +27,8 @@
 
         {{#if this.errors}}
             <div>
-                <h2 class="mb0 mt4 f5 fw6">Errors</h2>
-                <p class="mb2">Highly recommended to fix, functionality <span>could</span> be restricted</p>
+                <h2 class="mb0 mt4 f5 fw6">错误</h2>
+                <p class="mb2">强烈建议修复, <span>可能</span> 部分功能受限使用</p>
             </div>
 
             <ul class="pa0" data-test-theme-errors>
@@ -42,7 +42,7 @@
 
         {{#if (and this.warnings (or this.fatalErrors this.errors))}}
             <div>
-                <h2 class="mb0 mt4 f5 fw6">Warnings</h2>
+                <h2 class="mb0 mt4 f5 fw6">警告</h2>
             </div>
         {{/if}}
         {{#if this.warnings}}
@@ -59,6 +59,6 @@
 
 <div class="modal-footer">
     <button {{action "closeModal"}} class="gh-btn" data-test-modal-close-button>
-        <span>Ok</span>
+        <span>好的</span>
     </button>
 </div>

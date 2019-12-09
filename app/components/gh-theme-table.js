@@ -37,11 +37,11 @@ export default Component.extend({
             }
         });
 
-        // "(default)" needs to be added to casper manually as it's always
+        // "(默认)" needs to be added to casper manually as it's always
         // displayed and would mess up the duplicate checking if added earlier
         let casper = themes.findBy('name', 'casper');
         if (casper) {
-            casper.label = `${casper.label} (default)`;
+            casper.label = `${casper.label} (默认)`;
             casper.isDefault = true;
             casper.isDeletable = false;
         }

@@ -1,16 +1,16 @@
 <header class="modal-header">
-    <h1>Transfer Ownership</h1>
+    <h1>转移所有权</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="关闭" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
 <div class="modal-body">
     <p>
-        Are you sure you want to transfer the ownership of this blog?
-        You will not be able to undo this action.
+        确定要转移此文章的所有权吗？
+        此操作不可恢复。
     </p>
 </div>
 
 <div class="modal-footer">
-    <button {{action "closeModal"}} class="gh-btn"><span>Cancel</span></button>
-    {{gh-task-button "Yep - I'm sure" task=transferOwnership class="gh-btn gh-btn-red gh-btn-icon"}}
+    <button {{action "closeModal"}} class="gh-btn"><span>取消</span></button>
+    {{gh-task-button "是的 - 我确定" task=transferOwnership class="gh-btn gh-btn-red gh-btn-icon"}}
 </div>

@@ -1,5 +1,6 @@
 import PostModel from './post';
 
 export default PostModel.extend({
-    displayName: 'page'
+    displayName: '页面',
+    routeName: 'page'
 });

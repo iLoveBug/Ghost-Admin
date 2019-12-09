@@ -80,7 +80,7 @@ export default Component.extend({
     description: computed('text', 'altText', function () {
         let altText = this.altText;
 
-        return this.text || (altText ? `Upload image of "${altText}"` : 'Upload an image');
+        return this.text || (altText ? `上传图片 "${altText}"` : '上传一张图片');
     }),
 
     progressStyle: computed('uploadPercentage', function () {

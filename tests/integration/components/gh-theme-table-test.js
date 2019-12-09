@@ -33,7 +33,7 @@ describe('Integration: Component: gh-theme-table', function () {
             packageNames,
             'themes are ordered by label, casper has "default"'
         ).to.deep.equal([
-            'Casper (default)',
+            'Casper (默认)',
             'Daring',
             'foo',
             'Lanyon'
@@ -172,7 +172,7 @@ describe('Integration: Component: gh-theme-table', function () {
             'themes are ordered by label, folder names shown for duplicates'
         ).to.deep.equal([
             'Casper (another)',
-            'Casper (default)',
+            'Casper (默认)',
             'Casper (mine)',
             'Daring (daring)',
             'Daring (daring-0.1.5)',

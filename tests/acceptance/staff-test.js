@@ -288,7 +288,7 @@ describe('Acceptance: Staff', function () {
             expect(
                 find('.fullscreen-modal .error .response').textContent.trim(),
                 'inviting existing user error'
-            ).to.equal('A user with that email address already exists.');
+            ).to.equal('该邮件地址的用户已存在');
 
             // submit invite form with existing invite
             await fillIn('.fullscreen-modal input[name="email"]', 'invite1@example.com');
@@ -298,7 +298,7 @@ describe('Acceptance: Staff', function () {
             expect(
                 find('.fullscreen-modal .error .response').textContent.trim(),
                 'inviting invited user error'
-            ).to.equal('A user with that email address was already invited.');
+            ).to.equal('该邮件地址的用户已被邀请');
 
             // submit invite form with an invalid email
             await fillIn('.fullscreen-modal input[name="email"]', 'test');

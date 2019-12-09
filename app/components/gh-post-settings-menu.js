@@ -49,7 +49,7 @@ export default Component.extend(SettingsMenuMixin, {
     showVisibilityInput: or('session.user.isOwner', 'session.user.isAdmin', 'session.user.isEditor'),
 
     seoTitle: computed('metaTitleScratch', 'post.titleScratch', function () {
-        return this.metaTitleScratch || this.post.titleScratch || '(Untitled)';
+        return this.metaTitleScratch || this.post.titleScratch || '未命名';
     }),
 
     seoDescription: computed('post.scratch', 'metaDescriptionScratch', function () {

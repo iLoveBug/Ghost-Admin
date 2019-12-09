@@ -22,7 +22,7 @@ export default BaseValidator.create({
         model.get('errors').clear();
 
         if (isBlank(id)) {
-            model.get('errors').add('identification', 'Please enter an email');
+            model.get('errors').add('identification', '请输入邮件地址');
             this.invalidate();
         }
 
@@ -32,7 +32,7 @@ export default BaseValidator.create({
         }
 
         if (isBlank(password)) {
-            model.get('errors').add('password', 'Please enter a password');
+            model.get('errors').add('password', '请输入密码');
             this.invalidate();
         }
     },

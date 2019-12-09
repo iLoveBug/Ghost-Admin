@@ -1,30 +1,30 @@
 import PostsController from './posts';
 
 const TYPES = [{
-    name: 'All pages',
+    name: '所有页面',
     value: null
 }, {
-    name: 'Draft pages',
+    name: '草稿',
     value: 'draft'
 }, {
-    name: 'Published pages',
+    name: '已发布',
     value: 'published'
 }, {
-    name: 'Scheduled pages',
+    name: '计划发布',
     value: 'scheduled'
 }, {
-    name: 'Featured pages',
+    name: '标星',
     value: 'featured'
 }];
 
 const ORDERS = [{
-    name: 'Newest',
+    name: '最新',
     value: null
 }, {
-    name: 'Oldest',
+    name: '最久',
     value: 'published_at asc'
 }, {
-    name: 'Recently updated',
+    name: '最近更新',
     value: 'updated_at desc'
 }];
 

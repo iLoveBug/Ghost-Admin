@@ -62,9 +62,9 @@ export default ModalComponent.extend(ValidationEngine, {
             if (existingUser || existingInvite) {
                 this.errors.clear('email');
                 if (existingUser) {
-                    this.errors.add('email', 'A user with that email address already exists.');
+                    this.errors.add('email', '该邮件地址的用户已存在');
                 } else {
-                    this.errors.add('email', 'A user with that email address was already invited.');
+                    this.errors.add('email', '该邮件地址的用户已被邀请');
                 }
 
                 // TODO: this shouldn't be needed, ValidationEngine doesn't mark

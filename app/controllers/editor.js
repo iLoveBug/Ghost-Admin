@@ -14,7 +14,7 @@ import {isVersionMismatchError} from 'ghost-admin/services/ajax';
 import {inject as service} from '@ember/service';
 import {task, taskGroup, timeout} from 'ember-concurrency';
 
-const DEFAULT_TITLE = '(Untitled)';
+const DEFAULT_TITLE = '未命名';
 
 // time in ms to save after last content edit
 const AUTOSAVE_TIMEOUT = 3000;
@@ -494,7 +494,7 @@ export default Controller.extend({
         this.set('hasDirtyAttributes', true);
 
         // generate a slug if a post is new and doesn't have a title yet or
-        // if the title is still '(Untitled)'
+        // if the title is still '未命名'
         if ((post.get('isNew') && !currentTitle) || currentTitle === DEFAULT_TITLE) {
             yield this.generateSlug.perform();
         }

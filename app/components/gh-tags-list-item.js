@@ -21,7 +21,7 @@ export default Component.extend({
     postsCount: alias('tag.count.posts'),
     postsLabel: computed('tag.count.posts', function () {
         let noOfPosts = this.postsCount || 0;
-        return (noOfPosts === 1) ? `${noOfPosts} post` : `${noOfPosts} posts`;
+        return (noOfPosts === 1) ? `${noOfPosts} 篇文章` : `${noOfPosts} 篇文章`;
     }),
 
     _deleteTag() {

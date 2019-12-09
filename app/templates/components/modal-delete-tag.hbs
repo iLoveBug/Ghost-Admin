@@ -1,16 +1,16 @@
 <header class="modal-header">
-    <h1>Are you sure you want to delete this tag?</h1>
+    <h1>确认删除此标签吗？</h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">关闭</span></a>
 
 <div class="modal-body">
     {{#if tag.post_count}}
-        <span class="red">This tag is attached to {{tag.count.posts}} {{postInflection}}.</span>
+        <span class="red">此标签关联到文章 {{tag.count.posts}} {{postInflection}}。</span>
     {{/if}}
-    You're about to delete "<strong>{{tag.name}}</strong>". This is permanent! We warned you, k?
+    你将要删除 "<strong>{{tag.name}}</strong>"。此操作不可恢复，确认码？
 </div>
 
 <div class="modal-footer">
     <button {{action "closeModal"}} class="gh-btn"><span>Cancel</span></button>
-    {{gh-task-button "Delete" successText="Deleted" task=deleteTag class="gh-btn gh-btn-red gh-btn-icon"}}
+    {{gh-task-button "删除" successText="已删除" task=deleteTag class="gh-btn gh-btn-red gh-btn-icon"}}
 </div>
