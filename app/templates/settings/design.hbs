@@ -152,7 +152,7 @@
             {{#if showThemeWarningsModal}}
                 {{gh-fullscreen-modal "theme-warnings"
                     model=(hash
-                        title="Activation successful"
+                        title="激活成功"
                         warnings=themeWarnings
                         errors=themeErrors
                         canActivate=true
@@ -164,7 +164,7 @@
             {{#if showThemeErrorsModal}}
                 {{gh-fullscreen-modal "theme-warnings"
                     model=(hash
-                        title="Activation failed"
+                        title="激活失败"
                         errors=themeErrors
                         fatalErrors=themeFatalErrors
                         canActivate=false

@@ -20,10 +20,10 @@
                     <a href="#" {{action downloadTheme theme}} class="apps-configured-action darkgrey-hover blue-bg-hover" data-test-theme-download-button>下载</a>
                     {{!--Active Label / Activate Button--}}
                     {{#if theme.active}}
-                        <span class="gh-badge gh-badge-black apps-configured-action" data-test-theme-badge>激活</span>
+                        <span class="gh-badge gh-badge-black apps-configured-action" data-test-theme-badge>当前使用</span>
                     {{else}}
                         <a href="#" {{action activateTheme theme.model}} class="apps-configured-action apps-configured-action-activate green-hover green-bg-hover" data-test-theme-activate-button>
-                            当前使用
+                          激活
                         </a>
                     {{/if}}
                 </div>

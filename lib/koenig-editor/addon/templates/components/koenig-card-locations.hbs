@@ -1,6 +1,6 @@
 {{#koenig-card
     icon="koenig/card-indicator-locations"
-    class=(concat (kg-style "container-card") " mih10 miw-100 relative")
+    class=(concat (kg-style "locations-card") " mih10 miw-100 relative")
     headerOffset=headerOffset
     toolbar=toolbar
     payload=payload
@@ -21,7 +21,6 @@
             update=(action "updateLocations")
         }}
     {{else}}
-        <div>Locations</div>
         <div class="koenig-card-html-rendered">{{{sanitize-html payload.locations}}}</div>
         <div class="koenig-card-click-overlay"></div>
     {{/if}}
